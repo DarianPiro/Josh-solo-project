@@ -6,82 +6,121 @@ export const getChatroomMessages = async function (chatroomId) {
   return chatroom;
 };
 export const getChatrooms = async function () {
-  const response = await fetch(`${URL}chatrooms`);
-  const chatrooms = await response.json();
-  return chatrooms;
+  try {
+    const response = await fetch(`${URL}chatrooms`);
+    const chatrooms = await response.json();
+    return chatrooms;
+  } catch (error) {
+    console.log(error);
+  }
+
 };
 export const createChatRoom = async function (data) {
-  const response = await fetch(`${URL}createnewchat`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  const chatroom = await response.json();
-  return chatroom;
+  try {
+    const response = await fetch(`${URL}createnewchat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    const chatroom = await response.json();
+    return chatroom;
+  } catch (error) {
+    console.log(error);
+  }
 };
 export const saveMessage = async function (data) {
-  const response = await fetch(`${URL}savemessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  const message = await response.json();
-  return message;
+  try {
+    const response = await fetch(`${URL}savemessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    const message = await response.json();
+    return message;
+  } catch (error) {
+    console.log(error);
+  }
+
 };
 export const AIresponse = async function (context) {
-  const response = await fetch(`${URL}respond`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(context),
-  });
-  const result = await response.json();
-  return result;
+  try {
+    const response = await fetch(`${URL}respond`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(context),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+
 };
 export const translateText = async function (message) {
-   const response = await fetch(`${URL}translate`, {
-     method: "POST",
-     headers: { "Content-Type": "application/json" },
-     body: JSON.stringify(message),
-   });
-   const result = await response.json();
-   return result;
+  try {
+    const response = await fetch(`${URL}translate`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(message),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 }
 export const translateGrammar = async function (message) {
-  const response = await fetch(`${URL}translategrammar`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(message),
-  });
-  const result = await response.json();
-  const data = result.data
-  return data;
+  try {
+    const response = await fetch(`${URL}translategrammar`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(message),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+
 };
 export const checkGrammar = async function (message) {
-  const response = await fetch(`${URL}grammar`, {
-     method: "POST",
-     headers: { "Content-Type": "application/json" },
-     body: JSON.stringify(message),
-   });
-  const result = await response.json();
-  const data = await result.data
-  return data;
+  try {
+    const response = await fetch(`${URL}grammar`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(message),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+
 }
 export const sendingRecord = async function (message) {
-  const response = await fetch(`${URL}audio`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(message),
-  });
-  const result = await response.json();
-  const data = await result.data;
-  return data;
+  try {
+    const response = await fetch(`${URL}audio`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(message),
+    });
+    const result = await response.json();
+    const data = await result.data;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 }
 export const getVoiceResponse = async function (message) {
-const response = await fetch(`${URL}audioresponse`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(message),
-});
-const result = await response.json();
-  return result;
+  try {
+    const response = await fetch(`${URL}audioresponse`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(message),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 }
