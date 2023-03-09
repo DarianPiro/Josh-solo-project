@@ -1,4 +1,4 @@
 .DS_Store
 .env
 node_modules
-/google-service-account.json
+google-service-account.json
