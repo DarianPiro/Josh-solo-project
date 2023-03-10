@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["dom", "dom.iterable"],
+    "allowJs": true,
+    "checkJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "noUncheckedIndexedAccess": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*", ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs", "src/components/chatroom-display/chat-display-header.tsx", "src/components/userProfile.tsx", "src/components/chatroom-display/chatDisplayContainer.tsx", "src/components/chatrooom-dashboard/chatroomsDashboard.tsx", "src/components/chatrooom-dashboard/chatroom.tsx", "src/index.tsx",
+  ],
+  "exclude": ["node_modules"]
+}

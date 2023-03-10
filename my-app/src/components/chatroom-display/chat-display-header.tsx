@@ -1,10 +1,12 @@
-import { useSelector } from "react-redux";
-import { Image, Transformation } from "cloudinary-react";
+import { useSelector } from 'react-redux';
+import { Image, Transformation } from 'cloudinary-react';
 
 export function ChatDisplayHeader() {
-  const AI_image = useSelector((state) => state.ChatReducer.AI_image);
-  const AI_name = useSelector((state) => state.ChatReducer.AI_name);
-  const isTyping = useSelector((state) => state.TypingReducer);
+  const AI_image = useSelector(
+    (state: RootState) => state.ChatReducer.AI_image
+  );
+  const AI_name = useSelector((state: RootState) => state.ChatReducer.AI_name);
+  const isTyping = useSelector((state: RootState) => state.TypingReducer);
   return (
     <>
       <div className="chat_display_header">
@@ -19,7 +21,7 @@ export function ChatDisplayHeader() {
         </div>
         <div className="details_wrapper">
           <div className="AI_name"> {AI_name} </div>
-          {(isTyping) ? (
+          {isTyping ? (
             <div className="typing_wrapper">
               <div>typing</div>
               <div className="typing">
