@@ -1,3 +1,5 @@
+import { Request, Response } from "express";
+import { ObjectId } from "mongodb";
 const { v4: uuidv4 } = require("uuid");
 const deepl = require("deepl-node");
 const chatroom = require("../model/chatroom");
@@ -10,8 +12,11 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+interface dataMap {
+  [key: string]: string;
+}
 // data for Deepl translation
-const translateData = {
+const translateData: dataMap = {
   Czech: "cs",
   Danish: "da",
   German: "de",
@@ -37,7 +42,7 @@ const translateData = {
 // connection to DeepL API for translation
 const translator = new deepl.Translator(process.env.deepLAuthKey);
 
-const getChatroomMessages = async function (req, res) {
+const getChatroomMessages = async function (req: Request, res: Response) {
   try {
      const chatroomId = req.params.id;
     const ChatroomMessages = await chatroom.find({ chatroomId: chatroomId });
@@ -48,7 +53,7 @@ const getChatroomMessages = async function (req, res) {
     console.log(`error while retrieving the chatroom messages${error}`);
   }
 };
-const saveMessage = async function (req, res) {
+const saveMessage = async function (req: Request, res: Response) {
   const message = req.body.messages;
   const chatroomId = req.body.chatroomId;
   try {
@@ -66,7 +71,7 @@ const saveMessage = async function (req, res) {
     console.log(`error while saving the messages to the database: ${error}`);
   }
 };
-const respond = async function (req, res) {
+const respond = async function (req: Request, res: Response) {
   let AI_id = req.body.AI_id;
   let AI_name = req.body.AI_name;
   let user_name = req.body.user_name;
@@ -120,7 +125,7 @@ const respond = async function (req, res) {
   }
 };
 
-const translateMessage = async function (req, res) {
+const translateMessage = async function (req: Request, res: Response) {
   // data for mapping language for API call
   const data = req.body;
   const chatroomId = data.chatroomId;
@@ -137,8 +142,20 @@ const translateMessage = async function (req, res) {
     // find the the chatroom to which the message belongs to
     let chats = await chatroom.find({ chatroomId: chatroomId });
 
+    interface messageMap {
+      messageId: string,
+      senderId: string,
+      senderName: string,
+      timeStamp: string,
+      text: string,
+      audio: string,
+      translatedText: string,
+      _id?: ObjectId,
+    }
+
     // loop through the messages and update the translated field
-    chats[0].messages.forEach((message) => {
+    chats[0].messages.forEach((message: messageMap) => {
+      console.log(message)
       if (message.messageId === messageId)
         message.translatedText = translationResult.text;
     });
@@ -152,7 +169,7 @@ const translateMessage = async function (req, res) {
     console.log(`error while translating":${ error }`);
   }
 };
-const translateGrammar = async function (req, res) {
+const translateGrammar = async function (req: Request, res: Response) {
   try {
    const text = req.body.text
     let nativeLanguage = translateData[req.body.nativeLanguage];
@@ -165,7 +182,7 @@ const translateGrammar = async function (req, res) {
 
  }
 }
-const checkGrammar = async function (req, res) {
+const checkGrammar = async function (req: Request, res: Response) {
   const targetLanguage = req.body.targetLanguage;
   const text = req.body.text;
   let prompt = `you are a teacher,check grammatical mistake of "${text}",repsond in ${targetLanguage}.`;
@@ -189,7 +206,7 @@ const checkGrammar = async function (req, res) {
 };
 
 
-module.exports = {
+export default {
   getChatroomMessages,
   saveMessage,
   respond,

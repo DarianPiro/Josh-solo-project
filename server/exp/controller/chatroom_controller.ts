@@ -1,12 +1,16 @@
 //@ts-check
-
+import { Request, Response } from "express";
 const chatroom = require("../model/chatroom");
 const { cloudinary } = require('../cloudinary')
-const createChatroom = async function (req, res) {
+const createChatroom = async function (req: Request, res: Response) {
 
   try {
      let data = req.body;
-    const AI = {
+  
+    interface LanguageMap {
+      [key: string]: string[];
+    }
+    const AI: LanguageMap = {
       English: ["William", "Polyglot/William", `Hey`],
       French: ["Marion", "Polyglot/Marion", "Bonjour"],
       Spanish: ["Paula", "Polyglot/Paula", "Hola"],
@@ -29,7 +33,7 @@ const createChatroom = async function (req, res) {
     console.log(`error while creating the chatroom:${error}`);
   }
 };
-const getAllChatrooms = async function (req, res) {
+const getAllChatrooms = async function (req: Request, res: Response) {
   try {
     const chatrooms = await chatroom.find({});
     res.status(200);

@@ -11,6 +11,6 @@
     "strict": true,
     "jsx": "react",
   },
-  "include": ["**/*.ts", "**/*.js", "**.*"],
+  "include": ["**/*.ts", "**/*.js", "**.*", "express/router.tsx", "express/index.tsx", "express/model/chatroom.tsx"],
   "exclude": ["node_modules"]
 } 

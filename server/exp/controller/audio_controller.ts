@@ -1,3 +1,4 @@
+import { Request, Response } from "express";
 const textToSpeech = require("@google-cloud/text-to-speech");
 const fetch = require("cross-fetch");
 const database = require("../model/chatroom");
@@ -19,7 +20,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-const decodeAudio = async function (req, res) {
+const decodeAudio = async function (req: Request, res: Response) {
 
   try {
     const audioFileLink = req.body.audio;
@@ -29,6 +30,7 @@ const decodeAudio = async function (req, res) {
       throw new Error("PYTHON_URL environment variable is not defined.");
     }
     const data = { body: audioFileLink };
+    console.log(data)
     const whisperResponse = await fetch(PYTHONURL, {
       method: "POST",
       body: JSON.stringify(data),
@@ -38,6 +40,7 @@ const decodeAudio = async function (req, res) {
       credential: "include",
     });
     const whisperResult = await whisperResponse.json();
+    console.log(whisperResult)
     const text = await whisperResult.data;
     res.status(200);
     res.send({ data: text });
@@ -45,15 +48,21 @@ const decodeAudio = async function (req, res) {
     console.log(error);
   }
 };
-const generateAudioResponse = async function (req, res) {
+const generateAudioResponse = async function (req: Request, res: Response) {
   try {
     const chatroom = req.body;
     // slice the last sent message
     const lastMessage = req.body.messages.slice(-1)[0];
     const text = lastMessage.text;
 
+    interface voiceMap {
+        [key: string]: {
+          languageCode: string;
+          name: string;
+        };
+    }
     // convert the generated response through google cloud
-    const voiceData = {
+    const voiceData: voiceMap = {
       English: {
         languageCode: "en-US",
         name: "en-US-Wavenet-J",
@@ -128,16 +137,26 @@ const generateAudioResponse = async function (req, res) {
     const audio = googleResponse.url;
 
     //delete the generated audio file
-    fs.unlink(path.join(__dirname, "/output.mp3"), (err) => {
+    fs.unlink(path.join(__dirname, "/output.mp3"), (err: Error) => {
       if (err) throw err;
     });
 
     // update the message with audio and save to database
     // find the the chatroom to which the message belongs to
     let chats = await database.find({ chatroomId: chatroom.chatroomId });
-
+    interface messageMap {
+      messageId: string,
+      senderId: string,
+      senderName: string,
+      timeStamp: string,
+      text: string,
+      audio: string,
+      translatedText: string,
+      _id?: string,
+    }
     //loop and find the chat using the message id and update the audio
-    chats[0].messages.forEach((message) => {
+    chats[0].messages.forEach((message: messageMap) => {
+      console.log(message)
       if (message.messageId === lastMessage.messageId) message.audio = audio;
     });
     // save the entire chatroom to the database
