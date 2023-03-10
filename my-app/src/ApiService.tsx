@@ -20,7 +20,6 @@ export const createChatRoom = async function (data: Chatroom) {
   return chatroom;
 };
 export const saveMessage = async function (data: Message) {
-  console.log(data);
   const response = await fetch(`${URL}savemessage`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -30,7 +29,6 @@ export const saveMessage = async function (data: Message) {
   return message;
 };
 export const AIresponse = async function (context: Chatroom) {
-  console.log('this is the line', context);
   const response = await fetch(`${URL}respond`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -40,7 +38,6 @@ export const AIresponse = async function (context: Chatroom) {
   return result;
 };
 export const translateText = async function (message: Message) {
-  console.log(message);
   const response = await fetch(`${URL}translate`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -50,7 +47,6 @@ export const translateText = async function (message: Message) {
   return result;
 };
 export const translateGrammar = async function (message: Message) {
-  console.log(message);
   const response = await fetch(`${URL}translategrammar`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -61,7 +57,6 @@ export const translateGrammar = async function (message: Message) {
   return data;
 };
 export const checkGrammar = async function (message: Message) {
-  console.log(message);
   const response = await fetch(`${URL}grammar`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -72,7 +67,6 @@ export const checkGrammar = async function (message: Message) {
   return data;
 };
 export const sendingRecord = async function (message: Message) {
-  console.log(message);
   const response = await fetch(`${URL}audio`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -83,7 +77,6 @@ export const sendingRecord = async function (message: Message) {
   return data;
 };
 export const getVoiceResponse = async function (message: Message) {
-  console.log(message);
   const response = await fetch(`${URL}audioresponse`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

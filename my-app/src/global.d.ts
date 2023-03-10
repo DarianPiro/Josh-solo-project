@@ -40,9 +40,12 @@ interface Message {
 
 interface Props {
   icon?: IconDefinition;
-  className?: string;
 }
 
-interface Navigator extends Navigator {
-  getUserMedia: any;
+interface Navigator {
+  getUserMedia(
+    options: { video?: boolean; audio?: boolean },
+    success: (stream: any) => void,
+    error?: (error: string) => void
+  ): void;
 }
