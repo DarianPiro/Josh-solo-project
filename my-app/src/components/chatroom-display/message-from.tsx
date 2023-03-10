@@ -1,26 +1,34 @@
-import moment from "moment";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import { translateText } from "../../ApiService";
-import { Image } from "cloudinary-react";
+import moment from 'moment';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { translateText } from '../../ApiService';
+import { Image } from 'cloudinary-react';
 
-export function Messagefrom({ message, AI_image }) {
-  const prettyTimestamp = moment(new Date(+message.timeStamp)).format("LT");
+export function Messagefrom({
+  message,
+  AI_image,
+}: {
+  message: Message;
+  AI_image: string;
+}) {
+  const prettyTimestamp = moment(new Date(Number(message.timeStamp))).format(
+    'LT'
+  );
   // creating states to see if translate was requested
   const [ShowTranslation, setShowTranslation] = useState(false);
   const targetLanguage = useSelector(
-    (store) => store.ChatReducer.targetLanguage
+    (store: RootState) => store.ChatReducer.targetLanguage
   );
   const nativeLanguage = useSelector(
-    (store) => store.ChatReducer.nativeLanguage
+    (store: RootState) => store.ChatReducer.nativeLanguage
   );
-  const chatroomId = useSelector((store) => store.ChatReducer.chatroomId);
+  const chatroomId = useSelector((store: RootState) => store.ChatReducer.chatroomId);
   const dispatch = useDispatch();
   const audio = message.audio;
 
-  const translateMessage = async function (e) {
+  const translateMessage = async function () {
     // check if translation already exists
-    if (message.translatedText !== "") {
+    if (message.translatedText !== '') {
       setShowTranslation(!ShowTranslation);
     } else {
       message.targetLanguage = targetLanguage;
@@ -28,7 +36,7 @@ export function Messagefrom({ message, AI_image }) {
       message.chatroomId = chatroomId;
       const result = await translateText(message);
       // update the state and show the translation to the user
-      dispatch({ type: "updatemessages", payload: result });
+      dispatch({ type: 'updatemessages', payload: result });
       setShowTranslation(!ShowTranslation);
     }
 
@@ -37,7 +45,7 @@ export function Messagefrom({ message, AI_image }) {
   };
   return (
     <>
-      {message.audio === "" ? (
+      {message.audio === '' ? (
         <div className="message_container">
           <div className="message_from">
             <div className="left_message_user">
@@ -101,7 +109,7 @@ export function Messagefrom({ message, AI_image }) {
                   <audio
                     className="message_audio"
                     src={audio}
-                    controls="controls"
+                    controls={true}
                   />
                 </div>
               ) : (
@@ -137,5 +145,3 @@ export function Messagefrom({ message, AI_image }) {
     </>
   );
 }
-
-//
