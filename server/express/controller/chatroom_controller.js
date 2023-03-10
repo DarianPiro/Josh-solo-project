@@ -1,3 +1,5 @@
+//@ts-check
+
 const chatroom = require("../model/chatroom");
 const { cloudinary } = require('../cloudinary')
 const createChatroom = async function (req, res) {

@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/josht28/Josh-solo-project/issues"
   },
-  "homepage": "https://github.com/josht28/Josh-solo-project#readme"
+  "homepage": "https://github.com/josht28/Josh-solo-project#readme",
+  "dependencies": {
+    "typescript": "^4.9.5"
+  }
 }

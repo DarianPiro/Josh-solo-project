@@ -20,10 +20,14 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const decodeAudio = async function (req, res) {
+
   try {
     const audioFileLink = req.body.audio;
     // make an API call to python server with the audio to get the text extracted
     const PYTHONURL = process.env.PYTHON_URL;
+    if (!PYTHONURL) {
+      throw new Error("PYTHON_URL environment variable is not defined.");
+    }
     const data = { body: audioFileLink };
     const whisperResponse = await fetch(PYTHONURL, {
       method: "POST",
