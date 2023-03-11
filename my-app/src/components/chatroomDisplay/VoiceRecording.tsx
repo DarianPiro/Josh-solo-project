@@ -14,7 +14,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
-export function VoiceRecording(props: Props) {
+export default function VoiceRecording(props: Props) {
   const dispatch = useDispatch();
   const chatroom = useSelector((state: RootState) => state.ChatReducer);
   const [isRecording, SetisRecording] = useState(false);
@@ -56,7 +56,9 @@ export function VoiceRecording(props: Props) {
         formData.append('file', blob);
         formData.append('upload_preset', 'PolyglotAudio');
         let POST_URL =
-          'https://api.cloudinary.com/v1_1/' + 'dayg41e9c' + '/auto/upload';
+          'https://api.cloudinary.com/v1_1/' +
+          process.env.CLOUDINARY_NAME +
+          '/auto/upload';
         const response = await fetch(`${POST_URL}`, {
           method: 'POST',
           body: formData,

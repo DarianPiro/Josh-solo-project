@@ -1,9 +1,7 @@
 import React from 'react';
 import { screen, fireEvent, waitFor } from '@testing-library/react';
-import { CreateChat } from '../CreateChat';
+import CreateChat from '../CreateChat';
 import { renderWithProviders } from '../../test/testUtils';
-
-
 
 describe('CreateChat', () => {
   it('should render the component', () => {

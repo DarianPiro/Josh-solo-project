@@ -1,9 +1,9 @@
 import React from 'react';
-import { UserProfile } from '../components/UserProfile';
-import { ChatDisplayContainer } from '../components/chatroomDisplay/ChatDisplayContainer';
-import { ChatroomsDashboard } from '../components/chatroomDashboard/ChatroomsDashboard';
+import UserProfile from '../components/UserProfile';
+import ChatDisplayContainer from '../components/chatroomDisplay/ChatDisplayContainer';
+import ChatroomsDashboard from '../components/chatroomDashboard/ChatroomsDashboard';
 
-export function Dashboard() {
+export default function Dashboard() {
   return (
     <div className="app-dashboard">
       <UserProfile />

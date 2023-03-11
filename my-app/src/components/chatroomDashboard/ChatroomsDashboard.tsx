@@ -1,7 +1,7 @@
-import { ChatroomsHeader } from './ChatroomsHeader';
-import { ChatroomsList } from './ChatroomsList';
+import ChatroomsHeader from './ChatroomsHeader';
+import ChatroomsList from './ChatroomsList';
 
-export function ChatroomsDashboard() {
+export default function ChatroomsDashboard() {
   
   return (
     <div className="chatrooms_display">

@@ -1,9 +1,9 @@
-import { MessageFrom } from './MessageFrom'; // what is this error?
-import { MessageTo } from './MessageTo';
+import MessageFrom from './MessageFrom'; // what is this error?
+import MessageTo from './MessageTo';
 import { useSelector } from 'react-redux';
 import { useEffect, useRef } from 'react';
 
-export function ChatDisplayMessage() {
+export default function ChatDisplayMessage() {
   //destructure the messages
   const messages = useSelector(
     (state: RootState) => state.ChatReducer.messages

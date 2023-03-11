@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { translateText } from '../../ApiService';
 import { Image } from 'cloudinary-react';
 
-export function MessageFrom({
+export default function MessageFrom({
   message,
   AI_image,
 }: {

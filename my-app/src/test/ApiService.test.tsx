@@ -34,6 +34,7 @@ jest.mock('../ApiService', () => ({
 describe('ApiService', () => {
   it('should get chatrooms', async () => {
     const chatrooms = await ApiService.getChatrooms();
+    console.log('chatrooms:', chatrooms);
     expect(chatrooms).toEqual([
       {
         chatroomId: '1',

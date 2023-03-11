@@ -1,6 +1,6 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
-import { UserProfile } from '../UserProfile';
+import UserProfile from '../UserProfile';
 import { renderWithProviders } from '../../test/testUtils';
 
 describe('UserProfile', () => {

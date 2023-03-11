@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons/faArrowRightFromBracket';
-export function UserProfile() {
+
+export default function UserProfile() {
   const user_name = useSelector(
     (state: RootState) => state.ChatReducer.user_name
   );

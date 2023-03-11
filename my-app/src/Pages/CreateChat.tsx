@@ -8,7 +8,7 @@ import { createChatRoom } from '../ApiService';
 import { faXmark } from '@fortawesome/free-solid-svg-icons/faXmark';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export function CreateChat() {
+export default function CreateChat() {
   const options = [
     { value: 'English', label: 'English' },
     { value: 'French', label: 'French' },

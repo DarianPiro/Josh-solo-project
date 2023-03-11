@@ -1,6 +1,6 @@
 import React from 'react';
 import { screen} from '@testing-library/react';
-import { Dashboard } from '../Dashboard';
+import Dashboard from '../Dashboard';
 import { renderWithProviders } from '../../test/testUtils';
 
 describe('Dashboard', () => {
