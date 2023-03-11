@@ -1,6 +1,6 @@
-import { ChatDisplayHeader } from "./chat-display-header";
-import { ChatDisplayMessage } from "./chat-display-messages";
-import { ChatDisplayFooter } from "./chat-display-footer";
+import { ChatDisplayHeader } from "./ChatDisplayHeader";
+import { ChatDisplayMessage } from "./ChatDisplayMessage";
+import { ChatDisplayFooter } from "./ChatDisplayFooter";
 export function ChatDisplayContainer() {
   return (
     <>

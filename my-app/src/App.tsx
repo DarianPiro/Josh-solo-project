@@ -1,6 +1,6 @@
 import './App.css';
 import { Dashboard } from './Pages/Dashboard';
-import { CreateChat } from './Pages/create-chat';
+import { CreateChat } from './Pages/CreateChat';
 import { Route, Routes } from 'react-router-dom';
 function App() {
   https: return (

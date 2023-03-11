@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import '../createChat.css';
+import '../CreateChat.css';
 import Select from 'react-select';
 import { FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -106,13 +106,12 @@ export function CreateChat() {
               <div className="input spacing">
                 <Select
                   onChange={(event) =>
-                    {return event?.value && SetnativeLanguage(event.value), console.log(event?.value)}
+                    event?.value && SetnativeLanguage(event.value)
                   }
                   onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => {
                     const value = (event.target as HTMLSelectElement).value;
                     SetnativeLanguage(value);
                   }}
-
                   options={options}
                   placeholder="What's your native language?"
                   isSearchable

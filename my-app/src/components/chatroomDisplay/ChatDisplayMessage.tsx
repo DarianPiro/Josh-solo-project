@@ -1,5 +1,5 @@
-import { Messagefrom } from './message-from';
-import { MessageTo } from './message-to';
+import { MessageFrom } from './MessageFrom'; // what is this error?
+import { MessageTo } from './MessageTo';
 import { useSelector } from 'react-redux';
 import { useEffect, useRef } from 'react';
 
@@ -27,9 +27,9 @@ export function ChatDisplayMessage() {
   // map through the messages and check who the senderId belongs to and render accordingly
   return (
     <div className="message_wrapper">
-      {messages.map((message: Message) => {
+      {messages && messages.map((message: Message) => {
         return message.senderId === AI_id ? (
-          <Messagefrom
+          <MessageFrom
             key={message.messageId}
             message={message}
             AI_image={AI_image}

@@ -1,5 +1,5 @@
-import { ChatroomsHeader } from './chatrooms-header';
-import { ChatroomsList } from './chatrooms-list';
+import { ChatroomsHeader } from './ChatroomsHeader';
+import { ChatroomsList } from './ChatroomsList';
 
 export function ChatroomsDashboard() {
   

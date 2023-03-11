@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { getChatrooms } from '../../ApiService';
-import { Chatroom } from './chatroom';
+import { Chatroom } from './Chatroom';
 import { useDispatch, useSelector } from 'react-redux';
 
 export function ChatroomsList() {
