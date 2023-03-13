@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, fireEvent, waitFor } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import ChatroomsDashboard from '../ChatroomsDashboard';
 import { renderWithProviders } from '../../../test/testUtils';
 
@@ -12,5 +12,3 @@ describe('ChatroomsDashboard', () => {
     expect(screen.getByText('Chats')).toBeInTheDocument();
   });
 });
-
-export {};

@@ -38,6 +38,11 @@ interface Message {
   _id?: string;
 }
 
+interface TextInput {
+  targetLanguage: string;
+  text: string;
+}
+
 interface Props {
   icon?: IconDefinition;
 }

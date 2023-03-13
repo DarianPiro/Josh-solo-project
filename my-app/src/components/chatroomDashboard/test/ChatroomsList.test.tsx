@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen, fireEvent, waitFor, act } from '@testing-library/react';
 import ChatroomsList from '../ChatroomsList';
-import { renderWithProviders } from '../../../test/testUtils';
+import { renderWithProviders, chatroom1, chatroom2 } from '../../../test/testUtils';
 import { getChatrooms } from '../../../ApiService';
 
 jest.mock('../../../ApiService', () => ({
@@ -13,16 +13,8 @@ const mockedGetChatrooms = getChatrooms as jest.Mock<any>;
 describe('ChatroomsList component', () => {
   beforeEach(() => {
     mockedGetChatrooms.mockResolvedValue([
-      {
-        chatroomId: '1',
-        name: 'Chatroom 1',
-        messages: [],
-      },
-      {
-        chatroomId: '2',
-        name: 'Chatroom 2',
-        messages: [],
-      },
+      chatroom1, 
+      chatroom2
     ]);
   });
 
@@ -31,11 +23,11 @@ describe('ChatroomsList component', () => {
       renderWithProviders(<ChatroomsList />);
     });
 
-    const chatroom1 = screen.getByText('Chatroom 1');
-    const chatroom2 = screen.getByText('Chatroom 2');
+    const chatroom1Text = screen.getByText('Hello...');
+    const chatroom2Text = screen.getByText('Hallo...');
 
-    expect(chatroom1).toBeInTheDocument();
-    expect(chatroom2).toBeInTheDocument();
+    expect(chatroom1Text).toBeInTheDocument();
+    expect(chatroom2Text).toBeInTheDocument();
   });
 
   it('should fetch chatrooms on initialization', async () => {

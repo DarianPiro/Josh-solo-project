@@ -5,6 +5,7 @@ import { renderWithProviders } from '../../test/testUtils';
 
 describe('Dashboard', () => {
   it('should render the component', () => {
+    window.HTMLElement.prototype.scrollIntoView = function() {};
     renderWithProviders(<Dashboard />);
     const userProfile = screen.getByText('Josh');
     const chatroomsDashboard = screen.getByText('Chatrooms');

@@ -8,9 +8,7 @@ export const getChatroomMessages = async function (chatroomId: string) {
 };
 export const getChatrooms = async function () {
   const response = await fetch(`${URL}chatrooms`);
-  console.log('response:', response);
   const chatrooms = await response.json();
-  console.log('chatrooms:', chatrooms);
   return chatrooms;
 };
 export const createChatRoom = async function (data: Chatroom) {
@@ -84,6 +82,15 @@ export const getVoiceResponse = async function (message: Message) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(message),
+  });
+  const result = await response.json();
+  return result;
+};
+export const AITranslation = async function (TextInput: TextInput) {
+  const response = await fetch(`${URL}translateText`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(TextInput),
   });
   const result = await response.json();
   return result;
