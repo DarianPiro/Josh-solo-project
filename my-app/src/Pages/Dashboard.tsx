@@ -1,14 +1,19 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import TextTranslation from './TextTranslation';
 import UserProfile from '../components/UserProfile';
-import ChatDisplayContainer from '../components/chatroomDisplay/ChatDisplayContainer';
-import ChatroomsDashboard from '../components/chatroomDashboard/ChatroomsDashboard';
+import AIChat from './AIChat';
+import CreateChat from './CreateChat';
 
 export default function Dashboard() {
   return (
     <div className="app-dashboard">
       <UserProfile />
-      <ChatroomsDashboard />
-      <ChatDisplayContainer />
+      <Routes>
+        <Route path="/ai-chat" element={<AIChat />} />
+        <Route path="/create-ai-chat" element={<CreateChat />} />
+        <Route path="/translation" element={<TextTranslation />} />
+      </Routes>
     </div>
   );
 }

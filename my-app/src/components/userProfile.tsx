@@ -29,7 +29,7 @@ export default function UserProfile() {
         <div className="menu center">
           <button
             className="menuItem"
-            value={'dashboard'}
+            value={'ai-chat'}
             onClick={handleNavigation}
           >
             AI Chat

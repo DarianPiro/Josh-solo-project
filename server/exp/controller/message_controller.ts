@@ -204,8 +204,7 @@ const checkGrammar = async function (req: Request, res: Response) {
     console.log(`error while checking grammar:${error}`);
   }
 };
-const translateText = async function (req, res) {
-  // data for mapping language for API call
+const translateText = async function (req: Request, res: Response) {
   const data = req.body;
   const targetLanguage = translateData[data.targetLanguage];
   const text = data.text;
@@ -217,7 +216,7 @@ const translateText = async function (req, res) {
       targetLanguage
     );
     res.status(200);
-    res.send(chats[0]);
+    res.send(translationResult);
   } catch (error) {
     res.status(500);
     console.log(`error while translating":${ error }`);

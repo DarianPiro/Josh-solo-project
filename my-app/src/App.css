@@ -91,6 +91,12 @@
 .create_chat:hover {
   cursor: pointer;
 }
+
+.chat_wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
 .chatroom_list_background {
   padding-right: 30px;
   padding-left: 40px;
@@ -466,4 +472,64 @@ a {
 
 .menuItem:active {
   opacity: 0.8;
+}
+
+.text-translation-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-translation-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 1rem;
+}
+
+.text-translation-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.text-input {
+  width: 50vh;
+  height: 50vh;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.2rem;
+  resize: none;
+  text-align: left;
+  vertical-align: top;
+}
+
+.text-output {
+  width: 50vh;
+  height: 50vh;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.2rem;
+  resize: none;
+  background-color: #ffffff;
+}
+
+.language-box {
+  margin: 1rem;
+  width: 50vh;
+  height: 5vh;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.language-select {
+  width: 50vh;
+  height: 5vh;
+  text-align: center;
 }

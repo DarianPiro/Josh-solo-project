@@ -43,6 +43,11 @@ interface TextInput {
   text: string;
 }
 
+interface translatedText {
+  text: string;
+  detectedSourceLang: string;
+}
+
 interface Props {
   icon?: IconDefinition;
 }
@@ -53,4 +58,8 @@ interface Navigator {
     success: (stream: any) => void,
     error?: (error: string) => void
   ): void;
+}
+
+interface dataMap {
+  [key: string]: string;
 }

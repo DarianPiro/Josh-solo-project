@@ -25,7 +25,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.cjs",
-    "**/*.mjs", "src/components/chatroomDisplay/ChatDisplayHeader.tsx", "src/components/UserProfile.tsx", "src/components/chatroomDisplay/ChatDisplayContainer.tsx", "src/components/chatroomDashboard/ChatroomsDashboard.tsx", "src/components/chatroomDashboard/Chatroom.tsx", "src/index.tsx",
+    "**/*.mjs", "src/components/chatroom-display/chat-display-header.tsx", "src/components/userProfile.tsx", "src/components/chatroom-display/chatDisplayContainer.tsx", "src/components/chatrooom-dashboard/chatroomsDashboard.tsx", "src/components/chatrooom-dashboard/chatroom.tsx", "src/index.tsx",
   ],
   "exclude": ["node_modules"]
 }

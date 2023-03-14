@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 export default function ChatroomsHeader() {
   const navigate = useNavigate();
   const createChat = async function () {
-    navigate('/');
+    navigate('/create-ai-chat');
   };
   return (
       <div className="chatrooms_header_wrapper">
