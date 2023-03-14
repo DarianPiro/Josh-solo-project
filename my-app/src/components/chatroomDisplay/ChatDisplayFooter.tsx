@@ -4,10 +4,10 @@ import { saveMessage, AIresponse } from '../../ApiService';
 import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
-import { VoiceRecording } from './voice-recording';
+import VoiceRecording from './VoiceRecording';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 
-export function ChatDisplayFooter() {
+export default function ChatDisplayFooter() {
   const chatroom = useSelector((state: RootState) => state.ChatReducer);
   const dispatch = useDispatch();
 

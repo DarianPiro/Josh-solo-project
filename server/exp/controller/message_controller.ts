@@ -204,6 +204,25 @@ const checkGrammar = async function (req: Request, res: Response) {
     console.log(`error while checking grammar:${error}`);
   }
 };
+const translateText = async function (req, res) {
+  // data for mapping language for API call
+  const data = req.body;
+  const targetLanguage = translateData[data.targetLanguage];
+  const text = data.text;
+  try {
+    // make API call to deepL to translate. second argument is null as it will detect the source language
+    const translationResult = await translator.translateText(
+      text,
+      null,
+      targetLanguage
+    );
+    res.status(200);
+    res.send(chats[0]);
+  } catch (error) {
+    res.status(500);
+    console.log(`error while translating":${ error }`);
+  }
+};
 
 
 export default {
@@ -213,4 +232,5 @@ export default {
   translateMessage,
   checkGrammar,
   translateGrammar,
+  translateText,
 };

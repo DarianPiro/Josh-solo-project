@@ -2,7 +2,8 @@ import moment from 'moment'; // DARIAN - change this to different date library
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { checkGrammar, translateGrammar } from '../../ApiService';
-export function MessageTo({ message }: { message: Message }) {
+
+export default function MessageTo({ message }: { message: Message }) {
   const prettyTimestamp = moment(new Date(Number(message.timeStamp))).format(
     'LT'
   );
@@ -49,7 +50,7 @@ export function MessageTo({ message }: { message: Message }) {
     }
   };
   return (
-    <div className="message_container ">
+    <div className="message_container">
       <div className="message_to">
         <div className="right_message">
           {message.audio === '' ? (

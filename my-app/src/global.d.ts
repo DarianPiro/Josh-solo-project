@@ -38,11 +38,19 @@ interface Message {
   _id?: string;
 }
 
-interface Props {
-  icon?: IconDefinition;
-  className?: string;
+interface TextInput {
+  targetLanguage: string;
+  text: string;
 }
 
-interface Navigator extends Navigator {
-  getUserMedia: any;
+interface Props {
+  icon?: IconDefinition;
+}
+
+interface Navigator {
+  getUserMedia(
+    options: { video?: boolean; audio?: boolean },
+    success: (stream: any) => void,
+    error?: (error: string) => void
+  ): void;
 }

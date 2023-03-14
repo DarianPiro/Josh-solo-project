@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { translateText } from '../../ApiService';
 import { Image } from 'cloudinary-react';
 
-export function Messagefrom({
+export default function MessageFrom({
   message,
   AI_image,
 }: {
@@ -22,7 +22,9 @@ export function Messagefrom({
   const nativeLanguage = useSelector(
     (store: RootState) => store.ChatReducer.nativeLanguage
   );
-  const chatroomId = useSelector((store: RootState) => store.ChatReducer.chatroomId);
+  const chatroomId = useSelector(
+    (store: RootState) => store.ChatReducer.chatroomId
+  );
   const dispatch = useDispatch();
   const audio = message.audio;
 
