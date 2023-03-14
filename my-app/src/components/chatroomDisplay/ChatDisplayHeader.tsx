@@ -8,7 +8,7 @@ export default function ChatDisplayHeader() {
   const AI_name = useSelector((state: RootState) => state.ChatReducer.AI_name);
   const isTyping = useSelector((state: RootState) => state.TypingReducer);
   return (
-    <div className="chat_display_header">
+    <div className="chat_display_header" data-testid="chat_display_header">
       <div className="chatdisplay_header_user_image">
         <Image
           cloudName="dayg41e9c"

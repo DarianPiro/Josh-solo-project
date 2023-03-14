@@ -1,12 +1,12 @@
-import { Request, Response } from "express";
-import { ObjectId } from "mongodb";
-const { v4: uuidv4 } = require("uuid");
-const deepl = require("deepl-node");
-const chatroom = require("../model/chatroom");
+import { Request, Response } from 'express';
+import { ObjectId } from 'mongodb';
+const { v4: uuidv4 } = require('uuid');
+const deepl = require('deepl-node');
+const chatroom = require('../model/chatroom');
 const fs = require('fs');
-require("dotenv").config();
+require('dotenv').config();
 // connection to openAI API
-const { Configuration, OpenAIApi } = require("openai");
+const { Configuration, OpenAIApi } = require('openai');
 const configuration = new Configuration({
   apiKey: process.env.chatGPT_key,
 });
@@ -17,26 +17,26 @@ interface dataMap {
 }
 // data for Deepl translation
 const translateData: dataMap = {
-  Czech: "cs",
-  Danish: "da",
-  German: "de",
-  English: "en-GB",
-  Spanish: "es",
-  French: "fr",
-  Indonesian: "id",
-  Italian: "it",
-  Japanese: "ja",
-  Korean: "ko",
-  Norwegian: "nb",
-  Dutch: "nl",
-  Polish: "pl",
-  Portuguese: "pt-PT",
-  Romanian: "ro",
-  Russian: "ru",
-  Swedish: "sv",
-  Turkish: "tr",
-  Ukrainian: "uk",
-  Chinese: "zh",
+  Czech: 'cs',
+  Danish: 'da',
+  German: 'de',
+  English: 'en-GB',
+  Spanish: 'es',
+  French: 'fr',
+  Indonesian: 'id',
+  Italian: 'it',
+  Japanese: 'ja',
+  Korean: 'ko',
+  Norwegian: 'nb',
+  Dutch: 'nl',
+  Polish: 'pl',
+  Portuguese: 'pt-PT',
+  Romanian: 'ro',
+  Russian: 'ru',
+  Swedish: 'sv',
+  Turkish: 'tr',
+  Ukrainian: 'uk',
+  Chinese: 'zh',
 };
 
 // connection to DeepL API for translation
@@ -44,7 +44,7 @@ const translator = new deepl.Translator(process.env.deepLAuthKey);
 
 const getChatroomMessages = async function (req: Request, res: Response) {
   try {
-     const chatroomId = req.params.id;
+    const chatroomId = req.params.id;
     const ChatroomMessages = await chatroom.find({ chatroomId: chatroomId });
     res.status(200);
     res.send(ChatroomMessages);
@@ -80,7 +80,7 @@ const respond = async function (req: Request, res: Response) {
   // take the last three conversation to give context to the API
   let previousMessages = req.body.messages;
   let context;
-  let prompt = "";
+  let prompt = '';
   if (previousMessages.length >= 3) {
     context = req.body.messages.slice(-3);
     prompt = `${AI_name} is gen-z, and a close friend of ${user_name}. respond in ${targetLanguage}\n${context[0].senderName}: ${context[0].text} \n${context[1].senderName}: ${context[1].text}\n${context[2].senderName}:${context[2].text}\n${AI_name}:`;
@@ -90,7 +90,7 @@ const respond = async function (req: Request, res: Response) {
   }
   try {
     const response = await openai.createCompletion({
-      model: "text-davinci-003",
+      model: 'text-davinci-003',
       prompt: prompt,
       temperature: 1,
       max_tokens: 200,
@@ -107,8 +107,8 @@ const respond = async function (req: Request, res: Response) {
       senderName: AI_name,
       timeStamp: newTimeStamp,
       text: text,
-      audio:"",
-      translatedText: "",
+      audio: '',
+      translatedText: '',
     };
     let savedMessage = await chatroom.findOneAndUpdate(
       { chatroomId: chatroomId },
@@ -143,19 +143,19 @@ const translateMessage = async function (req: Request, res: Response) {
     let chats = await chatroom.find({ chatroomId: chatroomId });
 
     interface messageMap {
-      messageId: string,
-      senderId: string,
-      senderName: string,
-      timeStamp: string,
-      text: string,
-      audio: string,
-      translatedText: string,
-      _id?: ObjectId,
+      messageId: string;
+      senderId: string;
+      senderName: string;
+      timeStamp: string;
+      text: string;
+      audio: string;
+      translatedText: string;
+      _id?: ObjectId;
     }
 
     // loop through the messages and update the translated field
     chats[0].messages.forEach((message: messageMap) => {
-      console.log(message)
+      console.log(message);
       if (message.messageId === messageId)
         message.translatedText = translationResult.text;
     });
@@ -166,29 +166,32 @@ const translateMessage = async function (req: Request, res: Response) {
     res.send(chats[0]);
   } catch (error) {
     res.status(500);
-    console.log(`error while translating":${ error }`);
+    console.log(`error while translating":${error}`);
   }
 };
 const translateGrammar = async function (req: Request, res: Response) {
   try {
-   const text = req.body.text
+    const text = req.body.text;
     let nativeLanguage = translateData[req.body.nativeLanguage];
-    const translationResult = await translator.translateText(text, null, nativeLanguage);
+    const translationResult = await translator.translateText(
+      text,
+      null,
+      nativeLanguage
+    );
     res.status(200);
     res.send({ data: translationResult.text });
   } catch (error) {
     res.status(500);
     console.log(`error while translating grammar:{$error}`);
-
- }
-}
+  }
+};
 const checkGrammar = async function (req: Request, res: Response) {
   const targetLanguage = req.body.targetLanguage;
   const text = req.body.text;
   let prompt = `you are a teacher,check grammatical mistake of "${text}",repsond in ${targetLanguage}.`;
   try {
     const response = await openai.createCompletion({
-      model: "text-davinci-003",
+      model: 'text-davinci-003',
       prompt: prompt,
       temperature: 1,
       max_tokens: 200,
@@ -219,10 +222,9 @@ const translateText = async function (req: Request, res: Response) {
     res.send(translationResult);
   } catch (error) {
     res.status(500);
-    console.log(`error while translating":${ error }`);
+    console.log(`error while translating":${error}`);
   }
 };
-
 
 export default {
   getChatroomMessages,

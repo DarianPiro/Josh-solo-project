@@ -19,4 +19,14 @@ describe('ChatDisplayContainer', () => {
     renderWithProviders(<ChatDisplayContainer />);
     expect(screen.getByTestId('message_footer_wrapper')).toBeInTheDocument();
   });
+
+  it('renders MessageFrom component', () => {
+    renderWithProviders(<ChatDisplayContainer />);
+    expect(screen.getByTestId('message_from')).toBeInTheDocument();
+  });
+
+  it('renders VoiceRecording component', () => {
+    renderWithProviders(<ChatDisplayContainer />);
+    expect(screen.getByTestId("start_recording")).toBeInTheDocument();
+  });
 });

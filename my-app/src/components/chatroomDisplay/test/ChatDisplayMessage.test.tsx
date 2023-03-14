@@ -12,17 +12,7 @@ describe('ChatDisplayMessage component', () => {
   });
 
   it('should render a message', () => {
-    const messages = [{
-      text: 'Hello',
-      timeStamp: 12534,
-      audio: '',
-      from: '123',
-      to: '456',
-      id: '123456789',
-      grammar: '',
-      translation: '',
-    }];
-    renderWithProviders(<ChatDisplayMessage messages={messages}/>);
+    renderWithProviders(<ChatDisplayMessage/>);
     expect(screen.getByText('1:00 AM')).toBeInTheDocument();
   });
 });

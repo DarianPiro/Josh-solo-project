@@ -7,6 +7,36 @@ import store from '../../store';
 import { BrowserRouter, useNavigate } from 'react-router-dom';
 import { render } from '@testing-library/react';
 
+// jest.mock('../CreateChat', () => 
+//   ({
+//     ...jest.requireActual('../CreateChat'),
+//     createChat: jest.fn().mockResolvedValue({
+//       chatroomId: 'b2840857-13c2-4584-8adb-93266dd4f576',
+//       AI_id: 'ChatGPTEnglish',
+//       targetLanguage: 'English',
+//       AI_image: 'Polyglot/William',
+//       AI_name: 'William',
+//       userId: 'josh',
+//       user_name: 'Josh',
+//       nativeLanguage: 'French',
+//       messages: [
+//         {
+//           messageId: 'c7dce221-cfbb-4680-a2f1-876b6908f8ed',
+//           senderId: 'ChatGPTEnglish',
+//           senderName: 'William',
+//           timeStamp: '1678707317392',
+//           text: 'Test',
+//           audio: '',
+//           translatedText: '',
+//           _id: '640f0a75b99e4014f757250d',
+//         },
+//       ],
+//       _id: '640f0a75b99e4014f757250c',
+//       __v: 0,
+//     }),}
+//   )
+// );
+
 describe('CreateChat', () => {
   it('should render the component', () => {
     renderWithProviders(<CreateChat />);
@@ -30,7 +60,7 @@ test('calls the createChat function on submit with the selected languages', asyn
     useNavigate: jest.fn().mockImplementation(() => ({})),
   }));
 
-const consoleSpy = jest.spyOn(console, 'log')
+  const consoleSpy = jest.spyOn(console, 'log');
 
   const createChat = jest.fn().mockResolvedValue({
     chatroomId: 'b2840857-13c2-4584-8adb-93266dd4f576',
@@ -78,12 +108,16 @@ const consoleSpy = jest.spyOn(console, 'log')
 
   const submitButton = screen.getByText("Let's go!");
   fireEvent.click(submitButton);
- 
+
   // expect(await screen.findByText('Hey')).toBeInTheDocument();
   // await waitFor(() => expect(createChat).toHaveBeenCalled());
   // await waitFor(() => expect(mockedUseNavigate).toHaveBeenCalled());
-  await waitFor(() => expect(consoleSpy).toHaveBeenCalledWith("native language :French"))
-  await waitFor(() => expect(consoleSpy).toHaveBeenCalledWith("target language :English"))
+  await waitFor(() =>
+    expect(consoleSpy).toHaveBeenCalledWith('native language :French')
+  );
+  await waitFor(() =>
+    expect(consoleSpy).toHaveBeenCalledWith('target language :English')
+  );
   // await waitFor(() => expect(consoleSpy).toHaveBeenCalledWith({
   //   chatroomId: '80960da7-0849-4994-8d02-401bb0203681',
   //   AI_id: 'ChatGPTEnglish',
@@ -108,5 +142,4 @@ const consoleSpy = jest.spyOn(console, 'log')
   //   _id: '640f3c1bb99e4014f7572545',
   //   __v: 0
   // }))
-  
 });

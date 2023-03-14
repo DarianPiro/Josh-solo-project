@@ -20,11 +20,6 @@
   width: 400px;
   height: 60%;
 }
-.createChatPage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .input {
   margin: 20px;
 }
@@ -37,8 +32,10 @@
   justify-content: center;
 }
 .create_chat_wrapper {
-  position: relative;
-  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 .Logo {
   padding-top: 10px;
@@ -51,6 +48,7 @@
   padding: 20px;
   width: 90%;
   color: white;
+
   background: linear-gradient(
     135deg,
     rgba(169, 208, 250, 1) 0%,

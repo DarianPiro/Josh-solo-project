@@ -14,4 +14,11 @@ describe('ChatroomsHeader', () => {
     fireEvent.click(createChatButton);
     expect(screen.getByText(/Create new chat/i)).toBeInTheDocument();
   });
+
+  test('should have a working search bar', () => {
+    renderWithProviders(<ChatroomsHeader />);
+    const searchInput = screen.getByPlaceholderText(/Search/i) as HTMLInputElement;
+    fireEvent.change(searchInput, { target: { value: 'test' } });
+    expect(searchInput.value).toBe('test');
+  });
 });

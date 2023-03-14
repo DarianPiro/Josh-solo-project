@@ -1,5 +1,4 @@
-const URL = 'http://localhost:4000/';
-// const URL = process.env.SERVER_URL;
+const URL = process.env.REACT_APP_SERVER_URL;
 
 export const getChatroomMessages = async function (chatroomId: string) {
   const response = await fetch(`${URL}messages/${chatroomId}`);

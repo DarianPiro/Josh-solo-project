@@ -26,7 +26,7 @@ export default function ChatDisplayMessage() {
 
   // map through the messages and check who the senderId belongs to and render accordingly
   return (
-    <div className="message_wrapper">
+    <div className="message_wrapper" data-testid="message_wrapper">
       {messages && messages.map((message: Message) => {
         return message.senderId === AI_id ? (
           <MessageFrom

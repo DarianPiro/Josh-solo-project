@@ -25,7 +25,7 @@ export default function CreateChat() {
   const [nativeLanguage, SetNativeLanguage] = useState<string | null>(null);
   const [targetLanguage, SetTargetLanguage] = useState<string | null>(null);
   const closeTab = function () {
-    navigate('/dashboard');
+    navigate('/ai-chat');
   };
   const createChat = async function (event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -57,85 +57,75 @@ export default function CreateChat() {
       };
       let chatrooms = await createChatRoom(data);
       console.log(chatrooms);
-      setTimeout(() => {
-        dispatch({ type: 'updateChatroomList', payload: chatrooms });
-        navigate('/dashboard');
-      }, 500);
+
+      dispatch({ type: 'updateChatroomList', payload: chatrooms });
+      navigate('/ai-chat');
     }
   };
 
   return (
-    <div className="createChatbackground">
-      <div className="create_chat_wrapper">
-        <div className="logo_wrapper">
-          <img alt='logo' className="Logo" src={require('./logo.png')} />
-        </div>
-        <div className="create_chat_form_background">
-          <form onSubmit={createChat}>
-            <FontAwesomeIcon
-              className="closeTab"
-              onClick={closeTab}
-              icon={faXmark}
-            />
-            <div className="create_chat_question">
-              <div className="input spacing">
-                <Select
-                  onChange={(event) =>
-                    event?.value && SetTargetLanguage(event.value)
-                  }
-                  onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => {
-                    SetTargetLanguage(
-                      (event.target as HTMLSelectElement).value
-                    );
-                  }}
-                  options={options}
-                  placeholder="Which language would you like to learn?"
-                  isSearchable
-                  noOptionsMessage={() =>
-                    'Language not supported, please chose another'
-                  }
-                  styles={{
-                    control: (baseStyles, state) => ({
-                      ...baseStyles,
-                      width: 365,
-                    }),
-                  }}
-                />
-              </div>
+    <div className="create_chat_wrapper center">
+      <div className="create_chat_form_background ">
+        <form onSubmit={createChat}>
+          <FontAwesomeIcon
+            className="closeTab"
+            onClick={closeTab}
+            icon={faXmark}
+          />
+          <div className="create_chat_question">
+            <div className="input spacing">
+              <Select
+                onChange={(event) =>
+                  event?.value && SetTargetLanguage(event.value)
+                }
+                onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => {
+                  SetTargetLanguage((event.target as HTMLSelectElement).value);
+                }}
+                options={options}
+                placeholder="Which language would you like to learn?"
+                isSearchable
+                noOptionsMessage={() =>
+                  'Language not supported, please chose another'
+                }
+                styles={{
+                  control: (baseStyles, state) => ({
+                    ...baseStyles,
+                    width: 365,
+                  }),
+                }}
+              />
             </div>
-            <div className="create_chat_question">
-              <div className="input spacing">
-                <Select
-                  onChange={(event) =>
-                    event?.value && SetNativeLanguage(event.value)
-                  }
-                  onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => {
-                    SetNativeLanguage(
-                      (event.target as HTMLSelectElement).value
-                    );
-                  }}
-                  options={options}
-                  placeholder="What's your native language?"
-                  isSearchable
-                  noOptionsMessage={() =>
-                    'Language not supported, please chose another'
-                  }
-                  styles={{
-                    control: (baseStyles, state) => ({
-                      ...baseStyles,
-                      width: 365,
-                    }),
-                  }}
-                />
-              </div>
+          </div>
+          <div className="create_chat_question">
+            <div className="input spacing">
+              <Select
+                onChange={(event) =>
+                  event?.value && SetNativeLanguage(event.value)
+                }
+                onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => {
+                  SetNativeLanguage((event.target as HTMLSelectElement).value);
+                }}
+                options={options}
+                placeholder="What's your native language?"
+                isSearchable
+                noOptionsMessage={() =>
+                  'Language not supported, please chose another'
+                }
+                styles={{
+                  control: (baseStyles, state) => ({
+                    ...baseStyles,
+                    width: 365,
+                  }),
+                }}
+              />
             </div>
-            <div className="createChatButton-wrapper spacing">
-              <button className="createChatButton" typeof="submit">
-                Let's go!
-              </button>
-            </div>
-          </form>
-        </div>
+          </div>
+          <div className="createChatButton-wrapper spacing">
+            <button className="createChatButton" typeof="submit">
+              Let's go!
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

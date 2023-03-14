@@ -71,7 +71,7 @@ export default function ChatDisplayFooter() {
   };
 
   return (
-    <form className="message_footer_wrapper" onSubmit={handleSubmit}>
+    <form className="message_footer_wrapper" data-testid="message_footer_wrapper" onSubmit={handleSubmit}>
       <VoiceRecording />
       <input
         className="footer_input"
@@ -83,7 +83,7 @@ export default function ChatDisplayFooter() {
         placeholder="Type a message here"
         autoComplete="off"
       ></input>
-      <button type="submit" className="send" style={{ border: 'none', background: 'none' }}>
+      <button type="submit" data-testid="send" className="send" style={{ border: 'none', background: 'none' }}>
         <FontAwesomeIcon icon={faPaperPlane as IconDefinition} />
       </button>
     </form>

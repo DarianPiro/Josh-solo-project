@@ -8,11 +8,11 @@ describe('Dashboard', () => {
     window.HTMLElement.prototype.scrollIntoView = function() {};
     renderWithProviders(<Dashboard />);
     const userProfile = screen.getByText('Josh');
-    const chatroomsDashboard = screen.getByText('Chatrooms');
-    const chatDisplayContainer = screen.getByText('Chat Display');
+    const button1 = screen.getByText('AI Chat');
+    const button2 = screen.getByText('Translate Text');
     expect(userProfile).toBeInTheDocument();
-    expect(chatroomsDashboard).toBeInTheDocument();
-    expect(chatDisplayContainer).toBeInTheDocument();
+    expect(button1).toBeInTheDocument();
+    expect(button2).toBeInTheDocument();
   });
 }
 );

@@ -41,6 +41,21 @@ export const renderWithProviders = (children: React.ReactElement) => {
   );
 };
 
+export const mockMediaDevices = {
+  getUserMedia: jest.fn().mockResolvedValueOnce('fake data'),
+};
+
+Object.defineProperty(navigator, 'mediaDevices', {
+  writable: true,
+  value: mockMediaDevices,
+});
+
+navigator.getUserMedia = () => {
+  return new Promise((resolve) => {
+    resolve('response');
+  });
+};
+
 export const chatroom1 = {
   chatroomId: '1',
   name: 'Chatroom 1',

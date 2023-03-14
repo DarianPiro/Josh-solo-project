@@ -51,7 +51,7 @@ export default function MessageTo({ message }: { message: Message }) {
   };
   return (
     <div className="message_container">
-      <div className="message_to">
+      <div className="message_to" data-testid="message_to">
         <div className="right_message">
           {message.audio === '' ? (
             <div className="right_message_layout">

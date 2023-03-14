@@ -5,7 +5,7 @@ import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
 
 function App() {
-  https: return (
+  return (
     <div>
       <header>
         <LoginButton />

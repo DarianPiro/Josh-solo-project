@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, fireEvent, waitFor, act } from '@testing-library/react';
+import { screen, waitFor, act } from '@testing-library/react';
 import ChatroomsList from '../ChatroomsList';
 import { renderWithProviders, chatroom1, chatroom2 } from '../../../test/testUtils';
 import { getChatrooms } from '../../../ApiService';

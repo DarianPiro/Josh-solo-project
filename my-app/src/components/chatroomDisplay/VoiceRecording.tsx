@@ -57,7 +57,7 @@ export default function VoiceRecording(props: Props) {
         formData.append('upload_preset', 'PolyglotAudio');
         let POST_URL =
           'https://api.cloudinary.com/v1_1/' +
-          process.env.CLOUDINARY_NAME +
+          process.env.REACT_APP_CLOUDINARY_NAME +
           '/auto/upload';
         const response = await fetch(`${POST_URL}`, {
           method: 'POST',
@@ -124,12 +124,14 @@ export default function VoiceRecording(props: Props) {
     <>
       {isRecording ? (
         <FontAwesomeIcon
+          data-testid="stop_recording"
           className="stop_recording"
           icon={faCircleStop}
           onClick={stop}
         />
       ) : (
         <FontAwesomeIcon
+          data-testid="start_recording"
           className="start_recording"
           icon={faMicrophoneLines}
           onClick={start}

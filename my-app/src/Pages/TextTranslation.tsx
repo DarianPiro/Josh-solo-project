@@ -72,11 +72,11 @@ const TextTranslation = () => {
   };
 
   return (
-    <div className="text-translation-display">
+    <div className="text-translation-display center">
       <div className="center">
         <h2>Translation</h2>
       </div>
-      <form onSubmit={handleSubmit} className="text-translation-form">
+      <form onSubmit={handleSubmit} className="text-translation-form center">
         <div className="text-translation-column">
           <div className="language-box">{nativeLanguage}</div>
           <input

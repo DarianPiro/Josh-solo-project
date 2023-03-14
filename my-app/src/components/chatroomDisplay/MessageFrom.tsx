@@ -49,7 +49,7 @@ export default function MessageFrom({
     <>
       {message.audio === '' ? (
         <div className="message_container">
-          <div className="message_from">
+          <div className="message_from" data-testid="message_from">
             <div className="left_message_user">
               <Image
                 cloudName="dayg41e9c"

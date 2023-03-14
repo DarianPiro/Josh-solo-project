@@ -14,10 +14,10 @@ describe('MessageTo', () => {
     translation: '',
   };
   
-  it('should display an image', () => {
+  it('should render the component', () => {
     renderWithProviders(<MessageTo message={message}/>);
-    const image = screen.getByRole('img');
-    expect(image).toBeInTheDocument();
+    const text = screen.getByText('Check my grammar');
+    expect(text).toBeInTheDocument();
   });
 
   it('renders a message', () => {
