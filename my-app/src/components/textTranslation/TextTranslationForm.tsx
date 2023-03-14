@@ -36,7 +36,7 @@ const TextTranslationForm = () => {
         targetLanguage: targetLanguage,
       };
       const response = await AITranslation(textInput);
-
+      console.log(response);
       SetText('');
     }
   };
@@ -45,7 +45,8 @@ const TextTranslationForm = () => {
     <div>
       <form className="text-translation" onSubmit={handleSubmit}>
         <Select
-          onChange={(event) => event?.value && SetTargetLanguage(event.value)}
+          // onChange={(event) => (event?.value && SetTargetLanguage(event.value))}
+          onChange={(event) => (console.log(event))}
           onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => {
             SetTargetLanguage((event.target as HTMLSelectElement).value);
           }}

@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import '../CreateChat.css';
+import './CreateChat.css';
 import Select from 'react-select';
 import { FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
