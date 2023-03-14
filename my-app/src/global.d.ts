@@ -5,6 +5,7 @@ interface RootState {
   ChatReducer: Chatroom;
   TypingReducer: boolean;
   ChatroomListReducer: ChatroomList;
+  UserReducer: User;
 }
 
 interface Chatroom {
@@ -36,6 +37,12 @@ interface Message {
   translatedText?: string;
   chatroomId?: string;
   _id?: string;
+}
+
+interface User {
+  name: string;
+  email: string | undefined;
+  picture: Blob | undefined;
 }
 
 interface TextInput {

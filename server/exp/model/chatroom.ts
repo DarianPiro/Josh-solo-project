@@ -1,7 +1,7 @@
-const mongoose = require('./db')
+import mongoose from './db'
 const { Schema } = mongoose;
 const chatroomSchema = new Schema({
-  chatroomId :String,
+  chatroomId: String,
   AI_id: String,
   targetLanguage: String,
   AI_image: String,
@@ -21,5 +21,4 @@ const chatroomSchema = new Schema({
     },
   ],
 });
-module.exports = mongoose.model('chatrooms',chatroomSchema)
-
+export default mongoose.model('chatrooms',chatroomSchema)

@@ -2,11 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons/faArrowRightFromBracket';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function UserProfile() {
-  const user_name = useSelector(
-    (state: RootState) => state.ChatReducer.user_name
+  const name = useSelector(
+    (state: RootState) => state.UserReducer.name
   );
+  const { user } = useAuth0();
   const navigate = useNavigate();
   const handleNavigation = (event: React.MouseEvent<HTMLButtonElement>) => {
     navigate(`/${event.currentTarget.value}`);
@@ -17,15 +19,20 @@ export default function UserProfile() {
       <div className="profile_top_half">
         <div className="profile_details">
           <div>
-            <img
-              className="user_image"
-              alt="user_image"
-              src={require('../pics/josh.jpg')}
-            ></img>
+            {user?.picture && (
+              <img
+                className="user_image"
+                alt="user_image"
+                src={user?.picture}
+              />
+            )}
           </div>
-          <div>{user_name}</div>
+          <div>{user?.name}</div>
         </div>
-        <div className="welcome_message"> Welcome back {user_name}</div>
+        <div className="welcome_message center">
+          {' '}
+          Welcome back <br /> {user?.name}
+        </div>
         <div className="menu center">
           <button
             className="menuItem"

@@ -5,11 +5,13 @@ export const getChatroomMessages = async function (chatroomId: string) {
   const chatroom = await response.json();
   return chatroom;
 };
+
 export const getChatrooms = async function () {
   const response = await fetch(`${URL}chatrooms`);
   const chatrooms = await response.json();
   return chatrooms;
 };
+
 export const createChatRoom = async function (data: Chatroom) {
   const response = await fetch(`${URL}createnewchat`, {
     method: 'POST',
@@ -19,6 +21,7 @@ export const createChatRoom = async function (data: Chatroom) {
   const chatroom = await response.json();
   return chatroom;
 };
+
 export const saveMessage = async function (data: Message) {
   const response = await fetch(`${URL}savemessage`, {
     method: 'POST',
@@ -28,6 +31,7 @@ export const saveMessage = async function (data: Message) {
   const message = await response.json();
   return message;
 };
+
 export const AIresponse = async function (context: Chatroom) {
   const response = await fetch(`${URL}respond`, {
     method: 'POST',
@@ -37,6 +41,7 @@ export const AIresponse = async function (context: Chatroom) {
   const result = await response.json();
   return result;
 };
+
 export const translateText = async function (message: Message) {
   const response = await fetch(`${URL}translate`, {
     method: 'POST',
@@ -46,6 +51,7 @@ export const translateText = async function (message: Message) {
   const result = await response.json();
   return result;
 };
+
 export const translateGrammar = async function (message: Message) {
   const response = await fetch(`${URL}translategrammar`, {
     method: 'POST',
@@ -56,6 +62,7 @@ export const translateGrammar = async function (message: Message) {
   const data = result.data;
   return data;
 };
+
 export const checkGrammar = async function (message: Message) {
   const response = await fetch(`${URL}grammar`, {
     method: 'POST',
@@ -66,6 +73,7 @@ export const checkGrammar = async function (message: Message) {
   const data = await result.data;
   return data;
 };
+
 export const sendingRecord = async function (message: Message) {
   const response = await fetch(`${URL}audio`, {
     method: 'POST',
@@ -76,6 +84,7 @@ export const sendingRecord = async function (message: Message) {
   const data = await result.data;
   return data;
 };
+
 export const getVoiceResponse = async function (message: Message) {
   const response = await fetch(`${URL}audioresponse`, {
     method: 'POST',
@@ -85,6 +94,7 @@ export const getVoiceResponse = async function (message: Message) {
   const result = await response.json();
   return result;
 };
+
 export const AITranslation = async function (TextInput: TextInput) {
   const response = await fetch(`${URL}translateText`, {
     method: 'POST',
@@ -94,3 +104,23 @@ export const AITranslation = async function (TextInput: TextInput) {
   const result = await response.json();
   return result;
 };
+
+export const getUser = async function (email: string) {
+  const response = await fetch(`${URL}getuser`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({email: email}),
+  });
+  const user = await response.json();
+  return user;
+};
+
+export const updateUser = async function (data: User) {
+  const response = await fetch(`${URL}updateuser`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  const user = await response.json();
+  return user;
+}

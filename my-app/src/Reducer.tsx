@@ -1,4 +1,5 @@
 import { combineReducers, AnyAction } from 'redux';
+
 const initialState = {
   chatroomId: '',
   AI_id: '',
@@ -23,12 +24,33 @@ const initialState = {
 const initalChatroomList = {
   chatroomList: [],
 };
+const initialUser = {
+  user: {
+    name: '',
+    picture: '',
+    email: '',
+  },
+};
+
 const GETCHATROOMMESSAGES = 'getChatRoomMessages';
 const UPDATEMESSAGES = 'updatemessages';
 const UPDATEVOICEMESSAGE = 'updateVoiceMessage';
 const UPDATECHATROOMLIST = 'updateChatroomList';
 const DISPLAYALLCHATROOMS = 'displayAllChatrooms';
 const ISTYPING = 'istyping';
+const UPDATEUSER = 'updateUser';
+
+
+function UserReducer(state = initialUser, action: AnyAction) {
+  switch (action.type) {
+    case UPDATEUSER: {
+      return { ...state, user: action.payload };
+    }
+    default:
+      return state;
+  }
+}
+
 function ChatReducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case GETCHATROOMMESSAGES: {
@@ -47,6 +69,7 @@ function ChatReducer(state = initialState, action: AnyAction) {
       return state;
   }
 }
+
 function ChatroomListReducer(state = initalChatroomList, action: AnyAction) {
   switch (action.type) {
     case UPDATECHATROOMLIST: {
@@ -62,6 +85,7 @@ function ChatroomListReducer(state = initalChatroomList, action: AnyAction) {
       return state;
   }
 }
+
 function TypingReducer(state = false, action: AnyAction) {
   switch (action.type) {
     case ISTYPING: {
@@ -71,9 +95,12 @@ function TypingReducer(state = false, action: AnyAction) {
       return state;
   }
 }
+
 const Reducer = combineReducers({
+  UserReducer,
   ChatReducer,
   ChatroomListReducer,
   TypingReducer,
 });
+
 export default Reducer;
