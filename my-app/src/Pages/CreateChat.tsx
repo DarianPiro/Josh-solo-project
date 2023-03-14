@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import '../createChat.css';
+import './CreateChat.css';
 import Select from 'react-select';
 import { FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -8,7 +8,7 @@ import { createChatRoom } from '../ApiService';
 import { faXmark } from '@fortawesome/free-solid-svg-icons/faXmark';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export function CreateChat() {
+export default function CreateChat() {
   const options = [
     { value: 'English', label: 'English' },
     { value: 'French', label: 'French' },
@@ -22,8 +22,8 @@ export function CreateChat() {
   ];
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [nativeLanguage, SetnativeLanguage] = useState<string | null>(null);
-  const [targetLanguage, SettargetLanguage] = useState<string | null>(null);
+  const [nativeLanguage, SetNativeLanguage] = useState<string | null>(null);
+  const [targetLanguage, SetTargetLanguage] = useState<string | null>(null);
   const closeTab = function () {
     navigate('/dashboard');
   };
@@ -68,7 +68,7 @@ export function CreateChat() {
     <div className="createChatbackground">
       <div className="create_chat_wrapper">
         <div className="logo_wrapper">
-          <img className="Logo" src={require('./logo.png')} />
+          <img alt='logo' className="Logo" src={require('./logo.png')} />
         </div>
         <div className="create_chat_form_background">
           <form onSubmit={createChat}>
@@ -81,11 +81,12 @@ export function CreateChat() {
               <div className="input spacing">
                 <Select
                   onChange={(event) =>
-                    event?.value && SettargetLanguage(event.value)
+                    event?.value && SetTargetLanguage(event.value)
                   }
                   onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => {
-                    const value = (event.target as HTMLSelectElement).value;
-                    SettargetLanguage(value);
+                    SetTargetLanguage(
+                      (event.target as HTMLSelectElement).value
+                    );
                   }}
                   options={options}
                   placeholder="Which language would you like to learn?"
@@ -106,13 +107,13 @@ export function CreateChat() {
               <div className="input spacing">
                 <Select
                   onChange={(event) =>
-                    {return event?.value && SetnativeLanguage(event.value), console.log(event?.value)}
+                    event?.value && SetNativeLanguage(event.value)
                   }
                   onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => {
-                    const value = (event.target as HTMLSelectElement).value;
-                    SetnativeLanguage(value);
+                    SetNativeLanguage(
+                      (event.target as HTMLSelectElement).value
+                    );
                   }}
-
                   options={options}
                   placeholder="What's your native language?"
                   isSearchable

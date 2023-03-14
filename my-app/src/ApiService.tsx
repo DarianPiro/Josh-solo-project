@@ -1,4 +1,5 @@
 const URL = 'http://localhost:4000/';
+// const URL = process.env.SERVER_URL;
 
 export const getChatroomMessages = async function (chatroomId: string) {
   const response = await fetch(`${URL}messages/${chatroomId}`);
@@ -81,6 +82,15 @@ export const getVoiceResponse = async function (message: Message) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(message),
+  });
+  const result = await response.json();
+  return result;
+};
+export const AITranslation = async function (TextInput: TextInput) {
+  const response = await fetch(`${URL}translateText`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(TextInput),
   });
   const result = await response.json();
   return result;

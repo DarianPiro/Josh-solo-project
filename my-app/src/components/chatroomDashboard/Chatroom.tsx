@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import moment from 'moment';
 import { Image } from 'cloudinary-react';
 
-export function Chatroom({ chatroom }: { chatroom: Chatroom }) {
+export default function Chatroom({ chatroom }: { chatroom: Chatroom }) {
   const dispatch = useDispatch();
   const AI_image = chatroom.AI_image;
   const chatroomId = chatroom.chatroomId;

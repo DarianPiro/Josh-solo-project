@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { getChatrooms } from '../../ApiService';
-import { Chatroom } from './chatroom';
+import Chatroom from './Chatroom';
 import { useDispatch, useSelector } from 'react-redux';
 
-export function ChatroomsList() {
+export default function ChatroomsList() {
   const dispatch = useDispatch();
   const chatroomList = useSelector(
     (state: RootState) => state.ChatroomListReducer.chatroomList

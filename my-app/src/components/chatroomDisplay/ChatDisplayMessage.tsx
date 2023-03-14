@@ -1,9 +1,9 @@
-import { Messagefrom } from './message-from';
-import { MessageTo } from './message-to';
+import MessageFrom from './MessageFrom'; // what is this error?
+import MessageTo from './MessageTo';
 import { useSelector } from 'react-redux';
 import { useEffect, useRef } from 'react';
 
-export function ChatDisplayMessage() {
+export default function ChatDisplayMessage() {
   //destructure the messages
   const messages = useSelector(
     (state: RootState) => state.ChatReducer.messages
@@ -29,7 +29,7 @@ export function ChatDisplayMessage() {
     <div className="message_wrapper">
       {messages && messages.map((message: Message) => {
         return message.senderId === AI_id ? (
-          <Messagefrom
+          <MessageFrom
             key={message.messageId}
             message={message}
             AI_image={AI_image}
