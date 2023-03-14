@@ -1,9 +1,9 @@
-//@ts-check
+
 import { Request, Response } from "express";
 const chatroom = require("../model/chatroom");
 const { cloudinary } = require('../cloudinary')
-const createChatroom = async function (req: Request, res: Response) {
 
+const createChatroom = async function (req: Request, res: Response) {
   try {
      let data = req.body;
   
@@ -33,6 +33,7 @@ const createChatroom = async function (req: Request, res: Response) {
     console.log(`error while creating the chatroom:${error}`);
   }
 };
+
 const getAllChatrooms = async function (req: Request, res: Response) {
   try {
     const chatrooms = await chatroom.find({});
@@ -43,4 +44,6 @@ const getAllChatrooms = async function (req: Request, res: Response) {
     console.log(`error while fetching chatroom details: ${error}`);
   }
 };
+
+
 module.exports = { createChatroom, getAllChatrooms };

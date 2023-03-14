@@ -18,6 +18,11 @@
   },
   "homepage": "https://github.com/josht28/Josh-solo-project#readme",
   "dependencies": {
+    "@auth0/auth0-react": "^2.0.1",
     "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "supertest": "^6.3.3"
   }
 }
