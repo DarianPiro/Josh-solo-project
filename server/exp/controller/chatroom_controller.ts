@@ -1,7 +1,6 @@
 
 import { Request, Response } from "express";
-const chatroom = require("../model/chatroom");
-const { cloudinary } = require('../cloudinary')
+import chatroom from "../model/chatroom";
 
 const createChatroom = async function (req: Request, res: Response) {
   try {

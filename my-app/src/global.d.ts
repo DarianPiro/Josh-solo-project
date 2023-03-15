@@ -56,7 +56,7 @@ interface translatedText {
 }
 
 interface Props {
-  icon?: IconDefinition;
+  icon?: any;
 }
 
 interface Navigator {

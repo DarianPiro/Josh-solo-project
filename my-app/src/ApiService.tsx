@@ -9,6 +9,7 @@ export const getChatroomMessages = async function (chatroomId: string) {
 export const getChatrooms = async function () {
   const response = await fetch(`${URL}chatrooms`);
   const chatrooms = await response.json();
+  console.log(chatrooms)
   return chatrooms;
 };
 

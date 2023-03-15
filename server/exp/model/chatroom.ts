@@ -16,9 +16,10 @@ const chatroomSchema = new Schema({
       senderName: String,
       timeStamp: String,
       text: String,
-      audio:String,
+      audio: String,
       translatedText: String,
     },
   ],
 });
 export default mongoose.model('chatrooms',chatroomSchema)
+
