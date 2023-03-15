@@ -16,11 +16,10 @@ export default function Dashboard() {
   useEffect(() => {
     if (isAuthenticated) {
       const getUserDetails = async () => {
-        console.log('getUserDetails called');
         const userDetails = await getUser(user?.email);
-        console.log('userDetails:', userDetails);
+        console.log(userDetails)
         dispatch({
-          type: 'UPDATEUSER',
+          type: 'updateUser',
           payload: {
             name: userDetails.name ? userDetails.name : user?.name,
             email: user?.email,
@@ -31,7 +30,6 @@ export default function Dashboard() {
       getUserDetails();
     }
   }, [isAuthenticated]);
-  
 
   return (
     <div className="app-dashboard">
@@ -41,7 +39,7 @@ export default function Dashboard() {
         <Route path="/create-ai-chat" element={<CreateChat />} />
         <Route path="/translation" element={<TextTranslation />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="*" element={<h1>Page not found</h1>} />
+        <Route path="*" element={<h1>Welcome</h1>} />
       </Routes>
     </div>
   );

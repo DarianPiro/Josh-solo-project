@@ -105,14 +105,14 @@ export const AITranslation = async function (TextInput: TextInput) {
   return result;
 };
 
-export const getUser = async function (email: string) {
+export const getUser = async function (email: string | undefined) {
   const response = await fetch(`${URL}getuser`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({email: email}),
   });
   const user = await response.json();
-  return user;
+  return user[0];
 };
 
 export const updateUser = async function (data: User) {

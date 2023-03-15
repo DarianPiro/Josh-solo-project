@@ -40,9 +40,9 @@ interface Message {
 }
 
 interface User {
-  name: string;
+  name: string | undefined;
   email: string | undefined;
-  picture: Blob | undefined;
+  picture: string | undefined;
 }
 
 interface TextInput {

@@ -25,11 +25,9 @@ const initalChatroomList = {
   chatroomList: [],
 };
 const initialUser = {
-  user: {
-    name: '',
-    picture: '',
-    email: '',
-  },
+  name: '',
+  picture: '',
+  email: '',
 };
 
 const GETCHATROOMMESSAGES = 'getChatRoomMessages';
@@ -40,11 +38,10 @@ const DISPLAYALLCHATROOMS = 'displayAllChatrooms';
 const ISTYPING = 'istyping';
 const UPDATEUSER = 'updateUser';
 
-
 function UserReducer(state = initialUser, action: AnyAction) {
   switch (action.type) {
     case UPDATEUSER: {
-      return { ...state, user: action.payload };
+      return { ...action.payload };
     }
     default:
       return state;

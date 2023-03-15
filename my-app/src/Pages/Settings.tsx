@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { updateUser } from '../ApiService';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Settings = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [name, setName] = useState('');
-  const [picture, setPicture] = useState<Blob | undefined>();
+  const [selectedPicture, setSelectedPicture] = useState<Blob | undefined>();
+  const [uploadedPicture, setUploadedPicture] = useState<string | undefined>();
   const { user } = useAuth0();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (picture) {
+    if (selectedPicture) {
       const formData = new FormData();
-      formData.append('file', picture);
+      formData.append('file', selectedPicture);
       formData.append('upload_preset', 'PolyglotAudio');
       let POST_URL = `https://api.cloudinary.com/v1_1/'${process.env.REACT_APP_CLOUDINARY_NAME}'/auto/upload`;
       const response = await fetch(`${POST_URL}`, {
@@ -19,15 +24,25 @@ const Settings = () => {
         body: formData,
       });
       const picture_link = await response.json();
-      setPicture(picture_link.url);
+      setUploadedPicture(picture_link.url);
     }
 
     const userInDB = await updateUser({
       name,
-      picture,
+      picture: uploadedPicture,
       email: user?.email,
     });
-    console.log(userInDB);
+
+    dispatch({
+      type: 'updateUser',
+      payload: {
+        name: userInDB.name ? userInDB.name : user?.name,
+        email: userInDB.email ? userInDB.email : user?.email,
+        picture: userInDB.picture ? userInDB.picture : user?.picture,
+      },
+    });
+
+    navigate('/dashboard');
   };
 
   return (
@@ -52,7 +67,7 @@ const Settings = () => {
             name="picture"
             id="picture"
             onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-              setPicture(event.target.files?.[0])
+              setSelectedPicture(event.target.files?.[0])
             }
           />
         </div>
