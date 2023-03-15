@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { ObjectId } from "mongodb";
 const { v4: uuidv4 } = require("uuid");
 const deepl = require("deepl-node");
-const chatroom = require("../model/chatroom");
+import chatroom from "../model/chatroom";
 const fs = require('fs');
 require("dotenv").config();
 // connection to openAI API
@@ -71,6 +71,7 @@ const saveMessage = async function (req: Request, res: Response) {
     console.log(`error while saving the messages to the database: ${error}`);
   }
 };
+
 const respond = async function (req: Request, res: Response) {
   let AI_id = req.body.AI_id;
   let AI_name = req.body.AI_name;
@@ -139,17 +140,17 @@ const translateMessage = async function (req: Request, res: Response) {
       null,
       nativeLanguage
     );
-    // find the the chatroom to which the message belongs to
+    // find the chatroom which the message belongs to
     let chats = await chatroom.find({ chatroomId: chatroomId });
 
     interface messageMap {
-      messageId: string,
-      senderId: string,
-      senderName: string,
-      timeStamp: string,
-      text: string,
-      audio: string,
-      translatedText: string,
+      messageId?: string,
+      senderId?: string,
+      senderName?: string,
+      timeStamp?: string,
+      text?: string,
+      audio?: string,
+      translatedText?: string,
       _id?: ObjectId,
     }
 
@@ -169,6 +170,7 @@ const translateMessage = async function (req: Request, res: Response) {
     console.log(`error while translating":${ error }`);
   }
 };
+
 const translateGrammar = async function (req: Request, res: Response) {
   try {
    const text = req.body.text
@@ -182,10 +184,11 @@ const translateGrammar = async function (req: Request, res: Response) {
 
  }
 }
+
 const checkGrammar = async function (req: Request, res: Response) {
   const targetLanguage = req.body.targetLanguage;
   const text = req.body.text;
-  let prompt = `you are a teacher,check grammatical mistake of "${text}",repsond in ${targetLanguage}.`;
+  let prompt = `you are a teacher,check grammatical mistake of "${text}",respond in ${targetLanguage}.`;
   try {
     const response = await openai.createCompletion({
       model: "text-davinci-003",
@@ -204,7 +207,8 @@ const checkGrammar = async function (req: Request, res: Response) {
     console.log(`error while checking grammar:${error}`);
   }
 };
-const translateText = async function (req, res) {
+
+const translateText = async function (req: Request, res: Response) {
   // data for mapping language for API call
   const data = req.body;
   const targetLanguage = translateData[data.targetLanguage];
@@ -217,7 +221,7 @@ const translateText = async function (req, res) {
       targetLanguage
     );
     res.status(200);
-    res.send(chats[0]);
+    res.send(translationResult);
   } catch (error) {
     res.status(500);
     console.log(`error while translating":${ error }`);

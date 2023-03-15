@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons/faArrowRightFromBracket';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function UserProfile() {
   const user_name = useSelector(
@@ -11,6 +12,8 @@ export default function UserProfile() {
   const handleNavigation = (event: React.MouseEvent<HTMLButtonElement>) => {
     navigate(`/${event.currentTarget.value}`);
   };
+
+  const { logout } = useAuth0();
 
   return (
     <div className="profile_container">
@@ -52,7 +55,10 @@ export default function UserProfile() {
       </div>
       <div className="profile_bottom_half">
         <div className="logout">
-          <FontAwesomeIcon icon={faArrowRightFromBracket} />
+        <div className="send" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+        <FontAwesomeIcon icon={faArrowRightFromBracket} />
+    </div>
+         
         </div>
       </div>
     </div>

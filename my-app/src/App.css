@@ -467,3 +467,32 @@ a {
 .menuItem:active {
   opacity: 0.8;
 }
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 20px;
+  width: 90px;
+  height: 18px;
+  font-size: 15px;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    rgba(169, 208, 250, 1) 0%,
+    rgba(60, 149, 244, 1) -15%,
+    rgba(51, 144, 243, 1) 58%,
+    rgba(42, 139, 242, 1) 83%,
+    rgba(42, 139, 242, 1) 100%
+  );
+  border-radius: 5px;
+  transition: all 1.5s ease;
+}

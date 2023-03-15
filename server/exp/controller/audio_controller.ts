@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
 const textToSpeech = require("@google-cloud/text-to-speech");
-const fetch = require("cross-fetch");
-const database = require("../model/chatroom");
-require("dotenv").config();
-const fs = require("fs");
+import fetch from "cross-fetch";
+import database from "../model/chatroom";
+import dotenv from "dotenv";
+dotenv.config();
+import fs from "fs";
 const path = require("path");
 const util = require("util");
 
@@ -21,7 +22,6 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const decodeAudio = async function (req: Request, res: Response) {
-
   try {
     const audioFileLink = req.body.audio;
     // make an API call to python server with the audio to get the text extracted
@@ -30,17 +30,17 @@ const decodeAudio = async function (req: Request, res: Response) {
       throw new Error("PYTHON_URL environment variable is not defined.");
     }
     const data = { body: audioFileLink };
-    console.log(data)
+    console.log(data);
     const whisperResponse = await fetch(PYTHONURL, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
       },
-      credential: "include",
+      credentials: "include",
     });
     const whisperResult = await whisperResponse.json();
-    console.log(whisperResult)
+    console.log(whisperResult);
     const text = await whisperResult.data;
     res.status(200);
     res.send({ data: text });
@@ -48,6 +48,7 @@ const decodeAudio = async function (req: Request, res: Response) {
     console.log(error);
   }
 };
+
 const generateAudioResponse = async function (req: Request, res: Response) {
   try {
     const chatroom = req.body;
@@ -56,10 +57,10 @@ const generateAudioResponse = async function (req: Request, res: Response) {
     const text = lastMessage.text;
 
     interface voiceMap {
-        [key: string]: {
-          languageCode: string;
-          name: string;
-        };
+      [key: string]: {
+        languageCode: string;
+        name: string;
+      };
     }
     // convert the generated response through google cloud
     const voiceData: voiceMap = {
@@ -100,7 +101,7 @@ const generateAudioResponse = async function (req: Request, res: Response) {
         name: "cmn-TW-Wavenet-A",
       },
     };
-    const languageCode = voiceData[chatroom.targetLanguage].languageCode
+    const languageCode = voiceData[chatroom.targetLanguage].languageCode;
     const name = voiceData[chatroom.targetLanguage].name;
     const client = new textToSpeech.TextToSpeechClient();
     const request = {
@@ -114,7 +115,7 @@ const generateAudioResponse = async function (req: Request, res: Response) {
       },
       voice: {
         languageCode: `${languageCode}`,
-        name:`${name}`,
+        name: `${name}`,
       },
     };
     const [response] = await client.synthesizeSpeech(request);
@@ -137,7 +138,7 @@ const generateAudioResponse = async function (req: Request, res: Response) {
     const audio = googleResponse.url;
 
     //delete the generated audio file
-    fs.unlink(path.join(__dirname, "/output.mp3"), (err: Error) => {
+    fs.unlink(path.join(__dirname, "/output.mp3"), (err: any) => {
       if (err) throw err;
     });
 
@@ -145,18 +146,18 @@ const generateAudioResponse = async function (req: Request, res: Response) {
     // find the the chatroom to which the message belongs to
     let chats = await database.find({ chatroomId: chatroom.chatroomId });
     interface messageMap {
-      messageId: string,
-      senderId: string,
-      senderName: string,
-      timeStamp: string,
-      text: string,
-      audio: string,
-      translatedText: string,
-      _id?: string,
+      messageId?: string;
+      senderId?: string;
+      senderName?: string;
+      timeStamp?: string;
+      text?: string;
+      audio?: string;
+      translatedText?: string;
+      _id?: string;
     }
     //loop and find the chat using the message id and update the audio
     chats[0].messages.forEach((message: messageMap) => {
-      console.log(message)
+      console.log(message);
       if (message.messageId === lastMessage.messageId) message.audio = audio;
     });
     // save the entire chatroom to the database
