@@ -2,11 +2,10 @@ const User = require('../model/User');
 import { Request, Response } from 'express';
 
 const getUser = async (req: Request, res: Response) => {
-  console.log('req.body', req.body);
   try {
-    // const data = await User.find({ email: req.body.email });
-    // res.send(data);
-    // res.status(200);
+    const data = await User.find({ email: req.body.email });
+    res.send(data);
+    res.status(200);
   } catch (error) {
     res.status(500).send({ error });
   }
