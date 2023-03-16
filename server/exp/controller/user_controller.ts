@@ -1,15 +1,37 @@
-const User = require('../model/User');
+import User from '../model/User';
 import { Request, Response } from 'express';
 
 const getUser = async (req: Request, res: Response) => {
   try {
-    const data = await User.find({ email: req.body.email });
-    res.send(data);
+    const foundUser = await User.find({ email: req.body.user.email });
+    if (foundUser.length === 0) {
+      const data = new User({
+        email: req.body.user.email,
+        name: req.body.user.name ? req.body.user.name : req.body.user.nickname,
+        picture: req.body.user.picture,
+      });
+      await data.save();
+      res.send(data);
+      res.status(201);
+    } else {
+      res.send(foundUser);
+      res.status(200);
+    }
+  } catch (error) {
+    res.status(500).send({ error });
+  }
+};
+
+const getUserById = async (req: Request, res: Response) => {
+  try {
+    const foundUser = await User.find({ _id: req.body.id });
+    res.send(foundUser);
     res.status(200);
   } catch (error) {
     res.status(500).send({ error });
   }
 };
+
 
 const updateUser = async (req: Request, res: Response) => {
   try {
@@ -48,4 +70,4 @@ const updateUser = async (req: Request, res: Response) => {
   }
 };
 
-export default { getUser, updateUser };
+export default { getUser, updateUser, getUserById };

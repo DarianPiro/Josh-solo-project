@@ -16,13 +16,13 @@ describe('MessageFrom', () => {
   const AI_image = './testimage.png';
 
   it('should display an image', () => {
-    renderWithProviders(<MessageFrom message={message} AI_image={AI_image} />);
+    renderWithProviders(<MessageFrom message={message} image={AI_image} />);
     const image = screen.getByRole('img');
     expect(image).toBeInTheDocument();
   });
 
   it('should render a message', () => {
-    renderWithProviders(<MessageFrom message={message} AI_image={AI_image} />);
+    renderWithProviders(<MessageFrom message={message} image={AI_image} />);
     expect(screen.getByText('Hello')).toBeInTheDocument();
   });
 });

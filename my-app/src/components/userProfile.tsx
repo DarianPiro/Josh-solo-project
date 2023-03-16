@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons/faArrowRightFromBracket';
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from '@auth0/auth0-react';
+import { Button, Typography, Avatar } from '@mui/material';
 
 export default function UserProfile() {
   const user = useSelector((state: RootState) => state.UserReducer);
@@ -20,55 +21,89 @@ export default function UserProfile() {
         <>
           {user.name !== '' && (
             <>
-              <div className="profile_details">
-                <div>
-                  {user.picture !== '' && (
-                    <img
-                      className="user_image"
-                      alt="user"
-                      src={user.picture}
-                    />
-                  )}
-                </div>
-                <div>{user.name}</div>
-              </div>
-              <div className="welcome_message center">
-                {' '}
-                Welcome back <br /> {user.name}
-              </div>
+              {user.picture !== '' && (
+                <Avatar sx={{ m: '1rem' }} alt="user" src={user.picture} />
+              )}
+
+              <Typography sx={{ fontWeight: 'bold', fontSize: '1rem' }}>
+                {user.name}
+              </Typography>
             </>
           )}
         </>
         <div className="menu center">
-          <button
-            className="menuItem"
+          <Button
+            variant="outlined"
+            sx={{
+              m: '0.5rem',
+              fontSize: '0.8rem',
+              fontWeight: 'bold',
+              color: '#035e7b',
+              borderColor: '#035e7b',
+              width: '80%',
+            }}
             value={'ai-chat'}
             onClick={handleNavigation}
           >
             AI Chat
-          </button>
-          <button
-            className="menuItem"
+          </Button>
+          <Button
+            sx={{
+              m: '0.5rem',
+              fontSize: '0.8rem',
+              fontWeight: 'bold',
+              color: '#035e7b',
+              borderColor: '#035e7b',
+              width: '80%',
+            }}
+            variant="outlined"
+            value={'personal-chat'}
+            onClick={handleNavigation}
+          >
+            Personal Chat
+          </Button>
+          <Button
+            sx={{
+              m: '0.5rem',
+              fontSize: '0.8rem',
+              fontWeight: 'bold',
+              color: '#035e7b',
+              borderColor: '#035e7b',
+              width: '80%',
+            }}
+            variant="outlined"
             value={'translation'}
             onClick={handleNavigation}
           >
             Translate Text
-          </button>
-          <button
-            className="menuItem"
+          </Button>
+          <Button
+            sx={{
+              m: '0.5rem',
+              fontSize: '0.8rem',
+              fontWeight: 'bold',
+              color: '#035e7b',
+              borderColor: '#035e7b',
+              width: '80%',
+            }}
+            variant="outlined"
             value={'settings'}
             onClick={handleNavigation}
           >
             Settings
-          </button>
+          </Button>
         </div>
       </div>
       <div className="profile_bottom_half">
         <div className="logout">
-        <div className="send" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-        <FontAwesomeIcon icon={faArrowRightFromBracket} />
-    </div>
-         
+          <div
+            className="send"
+            onClick={() =>
+              logout({ logoutParams: { returnTo: window.location.origin } })
+            }
+          >
+            <FontAwesomeIcon icon={faArrowRightFromBracket} />
+          </div>
         </div>
       </div>
     </div>

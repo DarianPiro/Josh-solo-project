@@ -1,6 +1,6 @@
 import React from 'react';
 import { screen, fireEvent, waitFor } from '@testing-library/react';
-import CreateChat from '../CreateChat';
+import CreateChat from '../CreateAIChat';
 import { renderWithProviders } from '../../test/testUtils';
 import { Provider } from 'react-redux';
 import store from '../../store';

@@ -1,3 +1,5 @@
+
+
 declare module 'cloudinary-react';
 declare module 'mic-recorder-to-mp3';
 
@@ -16,8 +18,8 @@ interface Chatroom {
   messages: Message[];
   nativeLanguage: string;
   targetLanguage: string;
-  userId: string;
-  user_name: string;
+  userIds?: (string | undefined)[];
+  users?: (string | undefined)[];
   __v?: number;
   _id?: string;
 }
@@ -40,6 +42,7 @@ interface Message {
 }
 
 interface User {
+  _id: string;
   name: string | undefined;
   email: string | undefined;
   picture: string | undefined;
@@ -56,7 +59,7 @@ interface translatedText {
 }
 
 interface Props {
-  icon?: any;
+  icon?: IconDefinition;
 }
 
 interface Navigator {

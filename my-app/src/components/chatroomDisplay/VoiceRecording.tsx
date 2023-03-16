@@ -17,6 +17,7 @@ const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
 export default function VoiceRecording(props: Props) {
   const dispatch = useDispatch();
+  const user = useSelector((state: RootState) => state.UserReducer);
   const chatroom = useSelector((state: RootState) => state.ChatReducer);
   const [isRecording, SetisRecording] = useState(false);
   const [blobURL, setblobURL] = useState('');
@@ -71,15 +72,15 @@ export default function VoiceRecording(props: Props) {
           AI_id: chatroom.chatroomId,
           AI_image: chatroom.AI_image,
           AI_name: chatroom.AI_name,
-          userId: chatroom.userId,
+          userIds: chatroom.userIds,
           nativeLanguage: chatroom.nativeLanguage,
           chatroomId: chatroom.chatroomId,
-          user_name: chatroom.user_name,
+          users: chatroom.users,
           targetLanguage: chatroom.targetLanguage,
           messages: {
             messageId: newId,
-            senderId: chatroom.userId,
-            senderName: 'Josh',
+            senderId: user._id,
+            senderName: user.name,
             timeStamp: newTimestamp,
             text: '',
             audio: audioFileLink,
@@ -126,6 +127,7 @@ export default function VoiceRecording(props: Props) {
           className="stop_recording"
           icon={faCircleStop}
           onClick={stop}
+          style={{ color: 'white' }}
         />
       ) : (
         <FontAwesomeIcon
@@ -133,6 +135,7 @@ export default function VoiceRecording(props: Props) {
           className="start_recording"
           icon={faMicrophoneLines}
           onClick={start}
+          style={{ color: 'white' }}
         />
       )}
     </>

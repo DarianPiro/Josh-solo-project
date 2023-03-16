@@ -11,7 +11,7 @@ jest.mock('../ApiService', () => {
           targetLanguage: 'English',
           AI_image: 'Polyglot/William',
           AI_name: 'William',
-          userId: 'josh',
+          userId: '1',
           user_name: 'Josh',
           nativeLanguage: 'French',
           messages: [
@@ -35,7 +35,7 @@ jest.mock('../ApiService', () => {
 describe('ApiService', () => {
   it('should get chatrooms', async () => {
     jest.spyOn(ApiService, 'getChatrooms');
-    const chatrooms = await ApiService.getChatrooms();
+    const chatrooms = await ApiService.getChatrooms('1');
     // expect(chatrooms.length).toBeGreaterThan(0);
     console.log(chatrooms);
     

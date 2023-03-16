@@ -3,13 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { translateText } from '../../ApiService';
 import { Image } from 'cloudinary-react';
+import { Avatar } from '@mui/material';
 
 export default function MessageFrom({
   message,
-  AI_image,
+  image,
 }: {
   message: Message;
-  AI_image: string;
+  image: string;
 }) {
   const prettyTimestamp = moment(new Date(Number(message.timeStamp))).format(
     'LT'
@@ -41,9 +42,6 @@ export default function MessageFrom({
       dispatch({ type: 'updatemessages', payload: result });
       setShowTranslation(!ShowTranslation);
     }
-
-    // flag to show the translated message
-    //   setShowTranslation((prevState) => !prevState);
   };
   return (
     <>
@@ -51,13 +49,17 @@ export default function MessageFrom({
         <div className="message_container">
           <div className="message_from" data-testid="message_from">
             <div className="left_message_user">
-              <Image
-                cloudName="dayg41e9c"
-                publicId={AI_image}
-                width="40"
-                height="40"
-                radius="max"
-              />
+            {image !== '' && image.includes('http') ? (
+                <Avatar sx={{ m: '1rem', borderRadius: '50%' }} alt="user" src={image} />
+              ) : (
+                <Image
+                  cloudName="dayg41e9c"
+                  publicId={image}
+                  width="40"
+                  height="40"
+                  radius="max"
+                />
+              )}
             </div>
             <div className="left_message">
               {!ShowTranslation ? (
@@ -72,21 +74,13 @@ export default function MessageFrom({
 
               <div>
                 {ShowTranslation ? (
-                  <a
-                    href="#"
-                    className="message_translate"
-                    onClick={translateMessage}
-                  >
+                  <div className="message_translate" onClick={translateMessage}>
                     Show original
-                  </a>
+                  </div>
                 ) : (
-                  <a
-                    href="#"
-                    className="message_translate"
-                    onClick={translateMessage}
-                  >
+                  <div className="message_translate" onClick={translateMessage}>
                     Translate
-                  </a>
+                  </div>
                 )}
               </div>
               <div className="message_timeStamp"> {prettyTimestamp}</div>
@@ -97,13 +91,17 @@ export default function MessageFrom({
         <div className="message_container">
           <div className="message_from">
             <div className="left_message_user">
-              <Image
-                cloudName="dayg41e9c"
-                publicId={AI_image}
-                width="40"
-                height="40"
-                radius="max"
-              />
+              {image !== '' && image.includes('http') ? (
+                <Avatar sx={{ m: '1rem', borderRadius: '50%' }} alt="user" src={image} />
+              ) : (
+                <Image
+                  cloudName="dayg41e9c"
+                  publicId={image}
+                  width="40"
+                  height="40"
+                  radius="max"
+                />
+              )}
             </div>
             <div className="left_message">
               {!ShowTranslation ? (
@@ -122,21 +120,13 @@ export default function MessageFrom({
 
               <div>
                 {ShowTranslation ? (
-                  <a
-                    href="#"
-                    className="message_translate"
-                    onClick={translateMessage}
-                  >
+                  <div className="message_translate" onClick={translateMessage}>
                     Show original
-                  </a>
+                  </div>
                 ) : (
-                  <a
-                    href="#"
-                    className="message_translate"
-                    onClick={translateMessage}
-                  >
+                  <div className="message_translate" onClick={translateMessage}>
                     Translate
-                  </a>
+                  </div>
                 )}
               </div>
               <div className="message_timeStamp"> {prettyTimestamp}</div>

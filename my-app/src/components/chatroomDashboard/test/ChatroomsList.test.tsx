@@ -20,7 +20,7 @@ describe('ChatroomsList component', () => {
 
   it('should display chatroom list', async () => {
     await act(async () => {
-      renderWithProviders(<ChatroomsList />);
+      renderWithProviders(<ChatroomsList   chat={'ai'} />);
     });
 
     const chatroom1Text = screen.getByText('Hello...');
@@ -32,7 +32,7 @@ describe('ChatroomsList component', () => {
 
   it('should fetch chatrooms on initialization', async () => {
     await act(async () => {
-      renderWithProviders(<ChatroomsList />);
+      renderWithProviders(<ChatroomsList  chat={'ai'}  />);
     });
 
     await waitFor(() => {

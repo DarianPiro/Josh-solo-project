@@ -85,3 +85,8 @@ form {
   scale: 1.2;
   cursor: pointer;
 }
+
+.new_chat_wrapper {
+  display: flex;
+  flex-direction: row;
+}

@@ -6,18 +6,41 @@ export const getChatroomMessages = async function (chatroomId: string) {
   return chatroom;
 };
 
-export const getChatrooms = async function () {
-  const response = await fetch(`${URL}chatrooms`);
+export const getChatrooms = async function (userId: string) {
+  const response = await fetch(`${URL}chatrooms`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({userId: userId}),
+  });
+
   const chatrooms = await response.json();
-  console.log(chatrooms)
+  console.log(chatrooms);
+  return chatrooms;
+};
+
+export const getAllChatrooms = async function () {
+  const response = await fetch(`${URL}allChatrooms`);
+  const chatrooms = await response.json();
+  console.log(chatrooms);
   return chatrooms;
 };
 
 export const createChatRoom = async function (data: Chatroom) {
+  console.log(data)
   const response = await fetch(`${URL}createnewchat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
+  });
+  const chatroom = await response.json();
+  return chatroom;
+};
+
+export const updateChatRoom = async function (chatroomId: string, userId: string) {
+  const response = await fetch(`${URL}updateChatroom`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({chatroomId: chatroomId, userId: userId}),
   });
   const chatroom = await response.json();
   return chatroom;
@@ -106,14 +129,24 @@ export const AITranslation = async function (TextInput: TextInput) {
   return result;
 };
 
-export const getUser = async function (email: string | undefined) {
+export const getUser = async function (user: any) {
   const response = await fetch(`${URL}getuser`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({email: email}),
+    body: JSON.stringify({ user: user }),
   });
-  const user = await response.json();
-  return user[0];
+  const storedUser = await response.json();
+  return storedUser[0];
+};
+
+export const getUserById = async function (userId: any) {
+  const response = await fetch(`${URL}getuserbyid`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id: userId }),
+  });
+  const storedUser = await response.json();
+  return storedUser[0];
 };
 
 export const updateUser = async function (data: User) {
@@ -122,6 +155,6 @@ export const updateUser = async function (data: User) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
-  const user = await response.json();
-  return user;
-}
+  const storedUser = await response.json();
+  return storedUser;
+};

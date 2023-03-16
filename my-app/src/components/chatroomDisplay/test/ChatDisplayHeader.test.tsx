@@ -4,7 +4,7 @@ import { screen } from '@testing-library/react';
 
 describe('ChatDisplayHeader component', () => {
   it('should display an image', () => {
-    renderWithProviders(<ChatDisplayHeader />);
+    renderWithProviders(<ChatDisplayHeader  chat={'ai'}/>);
     const image = screen.getByRole('img');
     expect(image).toBeInTheDocument();
   });

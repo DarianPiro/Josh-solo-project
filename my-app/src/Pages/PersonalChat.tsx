@@ -3,14 +3,14 @@ import ChatDisplayContainer from '../components/chatroomDisplay/ChatDisplayConta
 import ChatroomsDashboard from '../components/chatroomDashboard/ChatroomsDashboard';
 import { useSelector } from 'react-redux';
 
-const AIChat = () => {
+const PersonalChat = () => {
   const chatroom = useSelector((state: RootState) => state.ChatReducer);
   return (
-    <div className="chat_wrapper">
-      <ChatroomsDashboard chat={'ai'} />
-      {chatroom.chatroomId && <ChatDisplayContainer chat={'ai'} />}
+    <div className='chat_wrapper'>
+      <ChatroomsDashboard chat={'personal'} />
+      {chatroom.chatroomId && <ChatDisplayContainer chat={'personal'} />}
     </div>
   );
 };
 
-export default AIChat;
+export default PersonalChat;

@@ -6,7 +6,9 @@ import { getUser } from '../ApiService';
 import TextTranslation from './TextTranslation';
 import UserProfile from '../components/UserProfile';
 import AIChat from './AIChat';
-import CreateChat from './CreateChat';
+import PersonalChat from './PersonalChat';
+import CreateAIChat from './CreateAIChat';
+import CreatePersonalChat from './CreatePersonalChat';
 import Settings from './Settings';
 
 export default function Dashboard() {
@@ -16,14 +18,14 @@ export default function Dashboard() {
   useEffect(() => {
     if (isAuthenticated) {
       const getUserDetails = async () => {
-        const userDetails = await getUser(user?.email);
-        console.log(userDetails)
+        const userDetails = await getUser(user);
         dispatch({
           type: 'updateUser',
           payload: {
-            name: userDetails.name ? userDetails.name : user?.name,
+            _id: userDetails ? userDetails._id : user?._id,
+            name: userDetails ? userDetails.name : user?.name,
             email: user?.email,
-            picture: userDetails.picture ? userDetails.picture : user?.picture,
+            picture: userDetails ? userDetails.picture : user?.picture,
           },
         });
       };
@@ -36,7 +38,9 @@ export default function Dashboard() {
       <UserProfile />
       <Routes>
         <Route path="/ai-chat" element={<AIChat />} />
-        <Route path="/create-ai-chat" element={<CreateChat />} />
+        <Route path="/personal-chat" element={<PersonalChat />} />
+        <Route path="/create-ai-chat" element={<CreateAIChat />} />
+        <Route path="/create-personal-chat" element={<CreatePersonalChat />} />
         <Route path="/translation" element={<TextTranslation />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="*" element={<h1>Welcome</h1>} />

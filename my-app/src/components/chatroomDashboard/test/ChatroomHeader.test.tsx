@@ -4,19 +4,19 @@ import { renderWithProviders } from '../../../test/testUtils';
 
 describe('ChatroomsHeader', () => {
   test('renders component with correct title', () => {
-    renderWithProviders(<ChatroomsHeader />);
+    renderWithProviders(<ChatroomsHeader  chat={'ai'} />);
     expect(screen.getByText(/Chats/i)).toBeInTheDocument();
   });
 
   test('clicking create new chat button adds a new chat', () => {
-    renderWithProviders(<ChatroomsHeader />);
+    renderWithProviders(<ChatroomsHeader  chat={'ai'}  />);
     const createChatButton = screen.getByText(/Create new chat/i);
     fireEvent.click(createChatButton);
     expect(screen.getByText(/Create new chat/i)).toBeInTheDocument();
   });
 
   test('should have a working search bar', () => {
-    renderWithProviders(<ChatroomsHeader />);
+    renderWithProviders(<ChatroomsHeader  chat={'ai'} />);
     const searchInput = screen.getByPlaceholderText(/Search/i) as HTMLInputElement;
     fireEvent.change(searchInput, { target: { value: 'test' } });
     expect(searchInput.value).toBe('test');

@@ -5,7 +5,7 @@ import { renderWithProviders } from '../../../test/testUtils';
 
 describe('ChatroomsDashboard', () => {
   it('should render the ChatroomsDashboard component', () => {
-    renderWithProviders(<ChatroomsDashboard />);
+    renderWithProviders(<ChatroomsDashboard  chat={'ai'}  />);
     expect(screen.getByText('+ Create New Chat')).toBeInTheDocument();
 
     fireEvent.click(screen.getByText('+ Create New Chat'));

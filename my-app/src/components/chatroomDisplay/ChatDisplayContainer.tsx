@@ -1,13 +1,14 @@
 import ChatDisplayHeader from './ChatDisplayHeader';
 import ChatDisplayMessage from './ChatDisplayMessage';
 import ChatDisplayFooter from './ChatDisplayFooter';
+import { Box } from '@mui/material';
 
-export default function ChatDisplayContainer() {
+export default function ChatDisplayContainer({ chat }: { chat: string }) {
   return (
-    <div className="chat_display_container">
-      <ChatDisplayHeader />
-      <ChatDisplayMessage />
-      <ChatDisplayFooter />
-    </div>
+    <Box sx={{width:'60vw', height: '97vh'}}>
+      <ChatDisplayHeader chat={chat} />
+      <ChatDisplayMessage chat={chat} />
+      <ChatDisplayFooter chat={chat} />
+    </Box>
   );
 }

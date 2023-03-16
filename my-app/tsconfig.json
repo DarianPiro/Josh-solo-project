@@ -27,5 +27,5 @@
     "**/*.cjs",
     "**/*.mjs", "src/components/chatroom-display/chat-display-header.tsx", "src/components/userProfile.tsx", "src/components/chatroom-display/chatDisplayContainer.tsx", "src/components/chatrooom-dashboard/chatroomsDashboard.tsx", "src/components/chatrooom-dashboard/chatroom.tsx", "src/index.tsx",
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "Request.tsx"]
 }

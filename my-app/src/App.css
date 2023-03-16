@@ -4,13 +4,7 @@
   --red: #ff3366;
 }
 .app-dashboard {
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 34%,
-    rgba(254, 239, 239, 1) 54%,
-    rgba(254, 234, 234, 1) 75%,
-    rgba(255, 244, 244, 1) 100%
-  );
+  background: #035E7B;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -73,14 +67,6 @@
   padding: 10px 0px;
 }
 .create_chat {
-  background: linear-gradient(
-    135deg,
-    rgba(169, 208, 250, 1) 0%,
-    rgba(60, 149, 244, 1) -15%,
-    rgba(51, 144, 243, 1) 58%,
-    rgba(42, 139, 242, 1) 83%,
-    rgba(42, 139, 242, 1) 100%
-  );
   color: white;
   border-radius: 5px;
   border: none;
@@ -94,6 +80,7 @@
 .chat_wrapper {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .chatroom_list_background {
@@ -101,12 +88,16 @@
   padding-left: 40px;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  scrollbar-width: thin;
   height: 79%;
 }
+
+
+.chatroom_list_background::-webkit-scrollbar {
+  display: none;
+}
+
 .chatrooms_list {
   background-color: white;
-  box-shadow: 0px 9px 40px 3px rgba(254, 234, 234, 0.8);
   padding: 10px;
   min-height: 900px;
 }
@@ -114,13 +105,15 @@
 .chatroom_wrapper {
   position: relative;
   margin: 20px 5px;
-  box-shadow: 15px 7px 40px 3px rgba(254, 234, 234, 0.8);
   height: 80px;
 }
 .chatroom_wrapper:hover {
   cursor: pointer;
-  background-color: #ffebf0;
+  background-color: #EFEDE6;
+  border-radius: 0.5rem;
+  
 }
+
 .chatroom_details {
   display: flex;
   justify-content: space-between;
@@ -140,6 +133,7 @@
 .chatroom_user_details {
   display: flex;
   align-items: center;
+  flex-direction: row;
 }
 .chatroom_lastmessage {
   font-size: 0.7rem;
@@ -169,13 +163,16 @@
 .message_wrapper {
   background-color: white;
   height: 75%;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  scrollbar-color: rebeccapurple green;
-  margin-bottom: 2px;
-  scroll-behavior: smooth;
-  box-shadow: 0px 9px 40px 3px rgba(254, 234, 234, 0.8);
+  overflow: hidden;
+  margin-bottom: 1rem;
+
+  border-radius: 2rem;
 }
+
+.message_wrapper ::-webkit-scrollbar {
+  display: none;
+}
+
 .message_container {
   position: relative;
   opacity: 1;
@@ -201,16 +198,8 @@
   min-height: 80px;
   border-radius: 0px 7px 7px 7px;
   color: white;
-  background: linear-gradient(
-    135deg,
-    rgba(169, 208, 250, 1) 0%,
-    rgba(60, 149, 244, 1) -15%,
-    rgba(51, 144, 243, 1) 58%,
-    rgba(42, 139, 242, 1) 83%,
-    rgba(42, 139, 242, 1) 100%
-  );
+  background: #035e7b;
   position: relative;
-  box-shadow: 15px 7px 40px 3px rgba(254, 234, 234, 0.8);
 }
 .left_message_text {
   padding: 10px;
@@ -233,6 +222,9 @@ a {
   position: absolute;
   bottom: 10px;
   left: 10px;
+  font-size: 0.6rem;
+  cursor: pointer;
+  transition: all 0.1s ease;
 }
 .message_translate:hover {
   font-size: 0.7rem;
@@ -241,6 +233,8 @@ a {
   position: absolute;
   bottom: 10px;
   left: 10px;
+  font-size: 0.6rem;
+  transition: all 0.1s ease;
 }
 .message_grammar:hover {
   font-size: 0.7rem;
@@ -254,8 +248,7 @@ a {
 }
 .right_message {
   align-self: center;
-  box-shadow: 15px 7px 40px 3px rgba(254, 234, 234, 0.8);
-  border: 1px solid rgba(254, 234, 234, 0.6);
+  border: 1px solid #035e7b;
   width: 60%;
   padding-bottom: 20px;
   min-height: 90px;
@@ -325,20 +318,17 @@ a {
 }
 
 .message_footer_wrapper {
-  border-top: 1px solid rgba(254, 239, 239, 1);
   display: flex;
   justify-content: space-around;
   height: 10%;
   align-items: center;
-  padding: 10px;
-  box-shadow: 0px 9px 40px 3px rgba(254, 234, 234, 0.8);
 }
+
 .footer_input {
   padding: 10px;
-  /* border: none; */
+  border: none;
   height: 60%;
   width: 80%;
-  margin: 10px;
 }
 .start_recording {
   padding: 15px;
@@ -507,8 +497,7 @@ a {
   width: 50vh;
   height: 50vh;
   padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.2rem;
+  border-radius: 0.5rem;
   resize: none;
   background-color: #ffffff;
 }
@@ -550,26 +539,4 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-}
-
-.login-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  padding: 20px;
-  width: 90px;
-  height: 18px;
-  font-size: 15px;
-  color: white;
-  background: linear-gradient(
-    135deg,
-    rgba(169, 208, 250, 1) 0%,
-    rgba(60, 149, 244, 1) -15%,
-    rgba(51, 144, 243, 1) 58%,
-    rgba(42, 139, 242, 1) 83%,
-    rgba(42, 139, 242, 1) 100%
-  );
-  border-radius: 5px;
-  transition: all 1.5s ease;
 }

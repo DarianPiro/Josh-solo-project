@@ -6,8 +6,8 @@ const initialState = {
   targetLanguage: '',
   AI_image: '',
   AI_name: '',
-  userId: 'josh',
-  user_name: 'Josh',
+  userIds: [],
+  users: [],
   nativeLanguage: '',
   messages: [
     {
@@ -25,6 +25,7 @@ const initalChatroomList = {
   chatroomList: [],
 };
 const initialUser = {
+  _id: '',
   name: '',
   picture: '',
   email: '',

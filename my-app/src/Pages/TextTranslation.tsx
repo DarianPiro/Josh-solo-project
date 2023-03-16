@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { IconDefinition } from '@fortawesome/fontawesome-common-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
 import { AITranslation } from '../ApiService';
 import Select from 'react-select';
+import { Button, TextField, Typography, Box } from '@mui/material';
 
 const TextTranslation = () => {
   const [Text, SetText] = useState<string>('');
@@ -28,7 +26,7 @@ const TextTranslation = () => {
     cs: 'Czech',
     da: 'Danish',
     de: 'German',
-    'en-GB': 'English',
+    en: 'English',
     es: 'Spanish',
     fr: 'French',
     id: 'Indonesian',
@@ -38,7 +36,7 @@ const TextTranslation = () => {
     nb: 'Norwegian',
     nl: 'Dutch',
     pl: 'Polish',
-    'pt-PT': 'Portuguese',
+    pt: 'Portuguese',
     ro: 'Romanian',
     ru: 'Russian',
     sv: 'Swedish',
@@ -63,6 +61,7 @@ const TextTranslation = () => {
         targetLanguage: targetLanguage,
       };
       const response = await AITranslation(textInput);
+      console.log(response.detectedSourceLang);
       setTranslatedText(response.text);
       setNativeLanguage(
         translateData[response.detectedSourceLang] ||
@@ -72,15 +71,33 @@ const TextTranslation = () => {
   };
 
   return (
-    <div className="text-translation-display center">
-      <div className="center">
-        <h2>Translation</h2>
-      </div>
+    <Box    style={{
+      position: 'absolute',
+      left: '55%',
+      top: '50%',
+      transform: 'translate(-50%, -50%)',
+    }}>
       <form onSubmit={handleSubmit} className="text-translation-form center">
         <div className="text-translation-column">
-          <div className="language-box">{nativeLanguage}</div>
-          <input
-            className="text-input"
+          <div className="language-box">
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: 'bold', color: 'white' }}
+            >
+              {nativeLanguage}
+            </Typography>
+          </div>
+          <TextField
+            sx={{
+              height: '50vh',
+              width: '50vw',
+              background: 'white',
+              p: '1rem',
+              fontWeight: 'bold',
+              borderRadius: '0.5rem',
+            }}
+            multiline
+            variant="standard"
             type="text"
             onChange={changeTxt}
             name="text"
@@ -88,14 +105,17 @@ const TextTranslation = () => {
             required={true}
             placeholder="..."
             autoComplete="off"
+            InputProps={{
+              disableUnderline: true,
+            }}
           />
-          <button
+          <Button
             type="submit"
-            className="send"
-            style={{ border: 'none', background: 'none' }}
+            variant="outlined"
+            sx={{ m: '0.5rem', fontSize: '0.8rem', fontWeight: 'bold' }}
           >
             Translate
-          </button>
+          </Button>
         </div>
         <div className="text-translation-column">
           <div className="language-box">
@@ -121,10 +141,10 @@ const TextTranslation = () => {
               }}
             />
           </div>
-          <div className="text-output">{translatedText}</div>
+          <Box className="text-output">{translatedText}</Box>
         </div>
       </form>
-    </div>
+    </Box>
   );
 };
 

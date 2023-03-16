@@ -3,6 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { updateUser } from '../ApiService';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Button, TextField, Box } from '@mui/material';
 
 const Settings = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const Settings = () => {
     }
 
     const userInDB = await updateUser({
+      _id: user?._id,
       name,
       picture: uploadedPicture,
       email: user?.email,
@@ -46,39 +48,74 @@ const Settings = () => {
   };
 
   return (
-    <div className="center">
-      <form className="settings center" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value={name}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-              setName(event.target.value)
-            }
-          />
-        </div>
-        <div>
-          <label>Upload profile picture</label>
+    <Box
+      style={{
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+      }}
+    >
+      <form
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        onSubmit={handleSubmit}
+      >
+        <TextField
+          id="outlined-basic"
+          label="Change Name"
+          variant="outlined"
+          type="text"
+          name="name"
+          value={name}
+          
+          sx={{ fieldset: { borderColor: "white" } }}
+          InputProps={{
+            style: {
+              color: 'white',
+              borderColor: 'white',
+            },
+          }}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setName(event.target.value)
+          }
+        />
+        <br />
+
+        <Button
+          variant="outlined"
+          component="label"
+          sx={{ m: '0.5rem', fontSize: '0.8rem', fontWeight: 'bold' }}
+        >
           <input
             type="file"
-            name="picture"
-            id="picture"
+            hidden
             onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
               setSelectedPicture(event.target.files?.[0])
             }
           />
-        </div>
+          Upload Image
+        </Button>
+        <br />
+
         {/* {image && 
           <div>
             <img src={URL.createObjectURL(picture)} alt="profile" />
           </div>
         } */}
-        <button type="submit">Submit</button>
+        <Button
+          type="submit"
+          variant="outlined"
+          sx={{ m: '0.5rem', fontSize: '0.8rem', fontWeight: 'bold' }}
+        >
+          Submit
+        </Button>
       </form>
-    </div>
+    </Box>
   );
 };
 

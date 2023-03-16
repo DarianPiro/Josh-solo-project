@@ -6,8 +6,8 @@ const chatroomSchema = new Schema({
   targetLanguage: String,
   AI_image: String,
   AI_name: String,
-  userId: String,
-  user_name: String,
+  userIds: [String],
+  users: [String],
   nativeLanguage:String,
   messages: [
     {
