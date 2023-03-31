@@ -8,7 +8,7 @@ Polyglot utilizes a tech stack comprising of React, TypeScript, OpenAI Whisper, 
 
 # Features
 
-- AI chatbot
+- AI chat bot
 - Text to speech
 - Speech to text
 - Translation
@@ -19,7 +19,7 @@ Polyglot utilizes a tech stack comprising of React, TypeScript, OpenAI Whisper, 
 
 Frontend: [![React](https://img.shields.io/badge/React-blue?logo=react&logoColor=white)](https://reactjs.org/) [![Redux](https://img.shields.io/badge/Redux-purple?logo=redux&logoColor=white)](https://redux.js.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-Backend: [![Python](https://img.shields.io/badge/Python-blue?logo=python&logoColor=white)](https://www.python.org/) [![Flask](https://img.shields.io/badge/Flask-black?logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/2.1.x/) [![Express.js](https://img.shields.io/badge/Express.js-grey?logo=express&logoColor=white)](https://expressjs.com/) 
+Backend: [![Python](https://img.shields.io/badge/Python-blue?logo=python&logoColor=white)](https://www.python.org/) [![Flask](https://img.shields.io/badge/Flask-black?logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/2.1.x/) [![Express.js](https://img.shields.io/badge/Express.js-grey?logo=express&logoColor=white)](https://expressjs.com/) [![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
 Database: [![MongoDB](https://img.shields.io/badge/MongoDB-green?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 
@@ -119,6 +119,9 @@ npm start
 
 
 # Authors
-Josh Thomas
-David Chamberlain
-Darian Pirowhedayati
+Josh Thomas - [Github](https://github.com/josht28)
+
+David Chamberlain - [Github](https://github.com/DRC222)
+
+Darian Pirowhedayati - [Github](https://github.com/DarianPiro)
+
