@@ -15,12 +15,37 @@ Polyglot utilizes a tech stack comprising of React, TypeScript, OpenAI Whisper, 
 - Grammar correction
 - User-to-user chat
 
+# Tech Stack
+
+Frontend: [![React](https://img.shields.io/badge/React-blue?logo=react&logoColor=white)](https://reactjs.org/) [![Redux](https://img.shields.io/badge/Redux-purple?logo=redux&logoColor=white)](https://redux.js.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+
+Backend: [![Python](https://img.shields.io/badge/Python-blue?logo=python&logoColor=white)](https://www.python.org/) [![Flask](https://img.shields.io/badge/Flask-black?logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/2.1.x/) [![Express.js](https://img.shields.io/badge/Express.js-grey?logo=express&logoColor=white)](https://expressjs.com/) 
+
+Database: [![MongoDB](https://img.shields.io/badge/MongoDB-green?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+
+AI Chatbot: [![OpenAI Whisper](https://img.shields.io/badge/OpenAI%20Whisper-white)](https://openai.com/whisper/)
+
+Text Translation: [![DeepL](https://img.shields.io/badge/DeepL-blue?logo=deepl&logoColor=white)](https://www.deepl.com/translator)
+
+Text-to-Speech: [![Google Cloud Text-to-Speech](https://img.shields.io/badge/Google%20Cloud%20Text--to--Speech-blue?logo=google-cloud&logoColor=white)](https://cloud.google.com/text-to-speech)
+
+Image and Video Hosting: [![Cloudinary](https://img.shields.io/badge/Cloudinary-blueviolet?logo=cloudinary&logoColor=white)](https://cloudinary.com/)
+
+
 # Getting Started
+
+# Prerequisites
+Cloudinary
+Set up Cloudinary account and add the keys displayed on your dashboard to the .env in the express and python folders.
+
+Deepl API
+Set up Deepl API account and add key to express folder .env.
 
 Create google cloud account and follow this to create credentials for text to speech api.
 https://cloud.google.com/iam/docs/keys-create-delete
 
 Create google-service-account.json file in express folder with the credentials like this:
+```bash
 {
 "type":
 "project_id":
@@ -33,14 +58,9 @@ Create google-service-account.json file in express folder with the credentials l
 "auth_provider_x509_cert_url":
 "client_x509_cert_url":
 }
+```
 
-Cloudinary
-Set up cloudinary account and add the keys displayed on your dashboard to the .env in the express and python folders.
-
-Deepl api
-Set up deepl api account and add key to express folder .env.
-
-
+# Installation
 Clone this repo
 
 ```bash
@@ -50,7 +70,7 @@ git clone https://github.com/DarianPiro/Josh-solo-project
 Create .env files in both the server/python and server/exp folders.
 Copy each .env.sample and add your data.
 
-# Python server setup:
+# Python server setup
 
 Install Python 3.8-3.10 and pip for package management
 
@@ -81,7 +101,7 @@ python Whisper.py
 ```
 
 
-# Express server
+# Express server setup
 
 Inside the exp folder install dependencies and start the express server:
 ```bash
@@ -89,7 +109,7 @@ npm i
 nodemon index.js
 ```
 
-# React front end
+# React front end setup
 
 Install dependencies and start the react app:
 ```bash
@@ -97,26 +117,8 @@ npm i
 npm start
 ```
 
-# Tech Stack
-# Tech Stack
-
-Frontend: [![React](https://img.shields.io/badge/React-blue?logo=react&logoColor=white)](https://reactjs.org/) [![Redux](https://img.shields.io/badge/Redux-purple?logo=redux&logoColor=white)](https://redux.js.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-
-Backend: [![Python](https://img.shields.io/badge/Python-blue?logo=python&logoColor=white)](https://www.python.org/) [![Flask](https://img.shields.io/badge/Flask-black?logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/2.1.x/) [![Express.js](https://img.shields.io/badge/Express.js-grey?logo=express&logoColor=white)](https://expressjs.com/) 
-
-Database: [![MongoDB](https://img.shields.io/badge/MongoDB-green?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-
-AI Chatbot: [![OpenAI Whisper](https://img.shields.io/badge/OpenAI%20Whisper-white)](https://openai.com/whisper/)
-
-Text Translation: [![DeepL](https://img.shields.io/badge/DeepL-blue?logo=deepl&logoColor=white)](https://www.deepl.com/translator)
-
-Text-to-Speech: [![Google Cloud Text-to-Speech](https://img.shields.io/badge/Google%20Cloud%20Text--to--Speech-blue?logo=google-cloud&logoColor=white)](https://cloud.google.com/text-to-speech)
-
-Image and Video Hosting: [![Cloudinary](https://img.shields.io/badge/Cloudinary-blueviolet?logo=cloudinary&logoColor=white)](https://cloudinary.com/)
-
-
-
-# Contributors
-
 
 # Authors
+Josh Thomas
+David Chamberlain
+Darian Pirowhedayati
