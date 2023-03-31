@@ -1,61 +1,38 @@
 # Polyglot
 
-Polyglot is an educational app to help intermediate language learners to practise their target language having conversation over text and voice.
+Polyglot an app for intermediate language learners to practice their target language through text and voice conversations with an advanced AI chat bot or connect with other learners for real-life practice. 
 
-# Python server setup:
+With Polyglot, language learners can enjoy a seamless chat experience that's more interactive and engaging than ever before. Our app is perfect for remote language learning, allowing users to communicate with others from anywhere in the world.
 
-Install Python 3.8-3.10 and pip for package management
+Polyglot utilizes a tech stack comprising of React, TypeScript, OpenAI Whisper, Python, Flask, Redux, Google Cloud Text-to-Speech, Cloudinary, Express, Deepl, MongoDB. 
 
-brew install ffmpeg
+# Features
 
-pip install pipenv
+- AI chatbot
+- Text to speech
+- Speech to text
+- Translation
+- Grammar correction
+- User-to-user chat
 
-pip install flask
-
-pip install requests
-
-Inside the python folder:
-
-pipenv shell 
-
-pip install -U openai-whisper
-
-pip install -U flask-cors
-
-pip install python-dotenv
-
-pip install cloudinary
-
-To start the server:
-Activate the virtual environment with the command: run the file whisper.py using the command: python Whisper.py . This will start the server and be listening on local host port 5000.
-
-# Express server
-Run npm i from the express folder and run nodemon. This will start the server on localhost:4000.
-
-# React front end
-Go in to the my-app section, run npm i and followed by npm start.This should open up the browser on localhost:3000.
-
-
-# Needed apis:
-
+# Getting Started
 
 Create google cloud account and follow this to create credentials for text to speech api.
 https://cloud.google.com/iam/docs/keys-create-delete
 
 Create google-service-account.json file in express folder with the credentials like this:
 {
-  "type": 
-  "project_id": 
-  "private_key_id": 
-  "private_key": 
-  "client_email": 
-  "client_id": 
-  "auth_uri": 
-  "token_uri": 
-  "auth_provider_x509_cert_url": 
-  "client_x509_cert_url": 
+"type":
+"project_id":
+"private_key_id":
+"private_key":
+"client_email":
+"client_id":
+"auth_uri":
+"token_uri":
+"auth_provider_x509_cert_url":
+"client_x509_cert_url":
 }
-
 
 Cloudinary
 Set up cloudinary account and add the keys displayed on your dashboard to the .env in the express and python folders.
@@ -63,32 +40,83 @@ Set up cloudinary account and add the keys displayed on your dashboard to the .e
 Deepl api
 Set up deepl api account and add key to express folder .env.
 
-# local variables
 
-Python folder .env file:
+Clone this repo
 
-CLOUDINARY_NAME=
+```bash
+git clone https://github.com/DarianPiro/Josh-solo-project
+```
 
-CLOUDINARY_API_KEY=
+Create .env files in both the server/python and server/exp folders.
+Copy each .env.sample and add your data.
 
-CLOUDINARY_API_SECRET=
+# Python server setup:
+
+Install Python 3.8-3.10 and pip for package management
+
+```bash
+brew install ffmpeg
+
+pip install pipenv flask requests
+```
+
+Inside the python folder:
+
+```bash
+pipenv shell
+
+pip install -U openai-whisper
+
+pip install -U flask-cors
+
+pip install python-dotenv cloudinary
+
+```
+
+Activate the virtual environment and start the flask server:
+
+```bash
+pipenv shell
+python Whisper.py
+```
 
 
-Express folder .env file:
+# Express server
 
-PYTHON_URL="http://127.0.0.1:5000/audio"
+Inside the exp folder install dependencies and start the express server:
+```bash
+npm i
+nodemon index.js
+```
 
-chatGPT_key=
+# React front end
 
-deepLAuthKey=
+Install dependencies and start the react app:
+```bash
+npm i
+npm start
+```
 
-CLOUDINARY_NAME=
+# Tech Stack
+# Tech Stack
 
-CLOUDINARY_API_KEY=
+Frontend: [![React](https://img.shields.io/badge/React-blue?logo=react&logoColor=white)](https://reactjs.org/) [![Redux](https://img.shields.io/badge/Redux-purple?logo=redux&logoColor=white)](https://redux.js.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-CLOUDINARY_API_SECRET='./google-service-account.json'
+Backend: [![Python](https://img.shields.io/badge/Python-blue?logo=python&logoColor=white)](https://www.python.org/) [![Flask](https://img.shields.io/badge/Flask-black?logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/2.1.x/) [![Express.js](https://img.shields.io/badge/Express.js-grey?logo=express&logoColor=white)](https://expressjs.com/) 
 
-GOOGLE_APPLICATION_CREDENTIALS= 
+Database: [![MongoDB](https://img.shields.io/badge/MongoDB-green?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 
-CLOUDINARY_URL=
+AI Chatbot: [![OpenAI Whisper](https://img.shields.io/badge/OpenAI%20Whisper-white)](https://openai.com/whisper/)
 
+Text Translation: [![DeepL](https://img.shields.io/badge/DeepL-blue?logo=deepl&logoColor=white)](https://www.deepl.com/translator)
+
+Text-to-Speech: [![Google Cloud Text-to-Speech](https://img.shields.io/badge/Google%20Cloud%20Text--to--Speech-blue?logo=google-cloud&logoColor=white)](https://cloud.google.com/text-to-speech)
+
+Image and Video Hosting: [![Cloudinary](https://img.shields.io/badge/Cloudinary-blueviolet?logo=cloudinary&logoColor=white)](https://cloudinary.com/)
+
+
+
+# Contributors
+
+
+# Authors
