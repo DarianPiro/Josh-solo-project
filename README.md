@@ -34,12 +34,12 @@ Image and Video Hosting: [![Cloudinary](https://img.shields.io/badge/Cloudinary-
 
 # Getting Started
 
-# Prerequisites
+## Prerequisites
 Cloudinary
-Set up Cloudinary account and add the keys displayed on your dashboard to the .env in the express and python folders.
+Set up Cloudinary account, create an upload preset and get your cloud name, api key and api secret.
 
 Deepl API
-Set up Deepl API account and add key to express folder .env.
+Set up Deepl API account and get your API key.
 
 Create google cloud account and follow this to create credentials for text to speech api.
 https://cloud.google.com/iam/docs/keys-create-delete
@@ -60,7 +60,7 @@ Create google-service-account.json file in express folder with the credentials l
 }
 ```
 
-# Installation
+## Installation
 Clone this repo
 
 ```bash
@@ -70,7 +70,7 @@ git clone https://github.com/DarianPiro/Josh-solo-project
 Create .env files in both the server/python and server/exp folders.
 Copy each .env.sample and add your data.
 
-# Python server setup
+### Python server setup
 
 Install Python 3.8-3.10 and pip for package management
 
@@ -101,7 +101,7 @@ python Whisper.py
 ```
 
 
-# Express server setup
+### Express server setup
 
 Inside the exp folder install dependencies and start the express server:
 ```bash
@@ -109,7 +109,7 @@ npm i
 nodemon index.js
 ```
 
-# React front end setup
+### React front end setup
 
 Install dependencies and start the react app:
 ```bash
