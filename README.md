@@ -15,6 +15,19 @@ SpeechGuru utilizes a tech stack comprising of React, TypeScript, OpenAI Whisper
 - Grammar correction
 - User-to-user chat
 
+## Table of Contents
+
+- [SpeechGuru](#speechguru)
+  - [Features](#features)
+  - [Tech Stack](#tech-stack)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+      - [Python server setup](#python-server-setup)
+      - [Express server setup](#express-server-setup)
+      - [React frontend setup](#react-frontend-setup)
+  - [Authors](#authors)
+
 ## Tech Stack
 
 Frontend: [![React](https://img.shields.io/badge/React-blue?logo=react&logoColor=white)](https://reactjs.org/) [![Redux](https://img.shields.io/badge/Redux-purple?logo=redux&logoColor=white)](https://redux.js.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
