@@ -6,7 +6,7 @@ With Polyglot, language learners can enjoy a seamless chat experience that's mor
 
 Polyglot utilizes a tech stack comprising of React, TypeScript, OpenAI Whisper, Python, Flask, Redux, Google Cloud Text-to-Speech, Cloudinary, Express, Deepl, MongoDB. 
 
-# Features
+## Features
 
 - AI chat bot
 - Text to speech
@@ -15,7 +15,7 @@ Polyglot utilizes a tech stack comprising of React, TypeScript, OpenAI Whisper, 
 - Grammar correction
 - User-to-user chat
 
-# Tech Stack
+## Tech Stack
 
 Frontend: [![React](https://img.shields.io/badge/React-blue?logo=react&logoColor=white)](https://reactjs.org/) [![Redux](https://img.shields.io/badge/Redux-purple?logo=redux&logoColor=white)](https://redux.js.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
@@ -30,6 +30,7 @@ Text Translation: [![DeepL](https://img.shields.io/badge/DeepL-blue?logo=deepl&l
 Text-to-Speech: [![Google Cloud Text-to-Speech](https://img.shields.io/badge/Google%20Cloud%20Text--to--Speech-blue?logo=google-cloud&logoColor=white)](https://cloud.google.com/text-to-speech)
 
 Image and Video Hosting: [![Cloudinary](https://img.shields.io/badge/Cloudinary-blueviolet?logo=cloudinary&logoColor=white)](https://cloudinary.com/)
+
 
 
 # Getting Started
@@ -118,7 +119,8 @@ npm start
 ```
 
 
-# Authors
+
+## Authors
 Josh Thomas - [Github](https://github.com/josht28)
 
 David Chamberlain - [Github](https://github.com/DRC222)
