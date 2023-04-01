@@ -1,10 +1,10 @@
-# Polyglot
+# SpeechGuru
 
-Polyglot an app for intermediate language learners to practice their target language through text and voice conversations with an advanced AI chat bot or connect with other learners for real-life practice. 
+SpeechGuru is an exceptional app designed for intermediate language learners looking to hone their skills through text and voice conversations with a sophisticated AI chatbot. Our app provides a unique and engaging learning experience that allows users to connect with other learners for real-life practice.
 
-With Polyglot, language learners can enjoy a seamless chat experience that's more interactive and engaging than ever before. Our app is perfect for remote language learning, allowing users to communicate with others from anywhere in the world.
+With SpeechGuru, language learners can enjoy a seamless chat experience that's more interactive and engaging than ever before. Our app is perfect for remote language learning, allowing users to communicate with others from anywhere in the world.
 
-Polyglot utilizes a tech stack comprising of React, TypeScript, OpenAI Whisper, Python, Flask, Redux, Google Cloud Text-to-Speech, Cloudinary, Express, Deepl, MongoDB. 
+SpeechGuru utilizes a tech stack comprising of React, TypeScript, OpenAI Whisper, Python, Flask, Redux, Google Cloud Text-to-Speech, Cloudinary, Express, Deepl, MongoDB. 
 
 ## Features
 
@@ -21,7 +21,7 @@ Frontend: [![React](https://img.shields.io/badge/React-blue?logo=react&logoColor
 
 Backend: [![Python](https://img.shields.io/badge/Python-blue?logo=python&logoColor=white)](https://www.python.org/) [![Flask](https://img.shields.io/badge/Flask-black?logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/2.1.x/) [![Express.js](https://img.shields.io/badge/Express.js-grey?logo=express&logoColor=white)](https://expressjs.com/) [![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-Database: [![MongoDB](https://img.shields.io/badge/MongoDB-green?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+Database: [![MongoDB](https://img.shields.io/badge/MongoDB-green?logo=mongodb&logoColor=white)](https://www.mongodb.com/) [![Mongoose](https://img.shields.io/badge/Mongoose-orange?logo=mongoose&logoColor=white)](https://mongoosejs.com/)
 
 AI Chatbot: [![OpenAI Whisper](https://img.shields.io/badge/OpenAI%20Whisper-white)](https://openai.com/whisper/)
 
@@ -31,6 +31,7 @@ Text-to-Speech: [![Google Cloud Text-to-Speech](https://img.shields.io/badge/Goo
 
 Image and Video Hosting: [![Cloudinary](https://img.shields.io/badge/Cloudinary-blueviolet?logo=cloudinary&logoColor=white)](https://cloudinary.com/)
 
+Authentication: [![Auth0](https://img.shields.io/badge/Auth0-blueviolet?logo=auth0&logoColor=white)](https://auth0.com/)
 
 
 # Getting Started
