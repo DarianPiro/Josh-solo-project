@@ -1,0 +1,503 @@
+.app-dashboard {
+  background: #0A192F;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  min-height: 500px;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.logo {
+  margin: 1.5rem;
+}
+
+
+
+.chatrooms_display {
+  width: 40%;
+  min-width: 350px;
+  padding: 40px 20px 90px 40px;
+}
+.chat_display_container {
+  width: 50%;
+  min-width: 450px;
+  padding: 40px 20px 90px 40px;
+}
+
+.chatrooms_header_wrapper {
+  position: relative;
+  padding-right: 30px;
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.chatrooms_header_details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+}
+.create_chat {
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  min-width: 100px;
+}
+.create_chat:hover {
+  cursor: pointer;
+}
+
+.chat_wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.chatroom_list_background {
+  padding-right: 30px;
+  padding-left: 40px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  height: 79%;
+  border-radius: 2rem;
+  border: 1px solid #035e7b;
+}
+
+
+.chatroom_list_background::-webkit-scrollbar {
+  display: none;
+}
+
+.chatroom_wrapper {
+  position: relative;
+  margin: 20px 5px;
+  height: 80px;
+  background-color: #0f2648;
+  border-radius: 0.5rem;
+  color: white;
+}
+.chatroom_wrapper:hover {
+  cursor: pointer;
+  background: #132e56;
+  transition: all 0.3s ease;
+}
+
+.chatroom_details {
+  display: flex;
+  justify-content: space-between;
+}
+.chatroom_search_wrapper {
+  align-self: center;
+  width: 100%;
+}
+
+.chatrooms_search {
+  width: 100%;
+  height: 50px;
+  outline: none;
+  border: none;
+  padding: 10px;
+}
+.chatroom_user_details {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.chatroom_lastmessage {
+  font-size: 0.7rem;
+  padding-left: 40px;
+}
+.chatroom_date {
+  font-size: 0.7rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.chat_display_header {
+  display: flex;
+  height: 15%;
+  align-items: center;
+  margin-bottom: 3px;
+}
+.chatdisplay_header_user_image {
+  margin: 10px;
+}
+.chat_display_image {
+  margin: 1rem;
+}
+
+.message_wrapper {
+  height: 75%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 1px solid #035e7b;
+  border-radius: 2rem;
+}
+
+.message_wrapper ::-webkit-scrollbar {
+  display: none;
+}
+
+.message_container {
+  position: relative;
+  opacity: 1;
+  min-height: 150px;
+  padding: 30px;
+  padding-top: 10px;
+  padding-left: 40px;
+  transition: all ease 3s;
+}
+.message_from {
+  height: 100%;
+}
+.left_message_user {
+  top: 10px;
+  left: 30px;
+  position: absolute;
+}
+.left_message {
+  margin-left: 50px;
+  border: none;
+  width: 60%;
+  min-height: 80px;
+  border-radius: 0px 7px 7px 7px;
+  color: white;
+  background: #0f2648;
+  position: relative;
+}
+.left_message_text {
+  padding: 10px;
+  word-wrap: break-word;
+  padding-bottom: 50px;
+  padding-right: 30px;
+}
+.message_timeStamp {
+  font-size: x-small;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}
+a {
+  color: white;
+  text-decoration: none;
+  font-size: x-small;
+}
+.message_translate {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 0.6rem;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+.message_translate:hover {
+  font-size: 0.7rem;
+}
+.message_grammar {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 0.6rem;
+  transition: all 0.1s ease;
+}
+.message_grammar:hover {
+  font-size: 0.7rem;
+}
+
+.message_to {
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.right_message {
+  align-self: center;
+  border: 1px solid #035e7b;
+  color: white;
+  width: 60%;
+  padding-bottom: 20px;
+  min-height: 90px;
+  border-radius: 7px 0px 7px 7px;
+  position: relative;
+  margin-right: 20px;
+}
+
+.right_message_layout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.grammar_response {
+  font-size: 0.7rem;
+  font-style: italic;
+  align-self: flex-start;
+  padding: 10px;
+}
+.right_message_text {
+  padding: 10px 10px 0px 0px;
+}
+.right_message_grammar {
+  color: CCD6F6;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.right_message_traslate {
+  color: CCD6F6;
+  position: absolute;
+  bottom: 10px;
+  left: 40px;
+}
+.right_message_traslate:hover {
+  font-size: 0.7rem;
+}
+.right_message_grammar:hover {
+  font-size: 0.7rem;
+}
+.message_text {
+  font-size: 0.8rem;
+  animation: reveal 0.75s eae 0s 1 normal none;
+}
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.translated_text {
+  font-size: 0.8rem;
+  animation: Ease_in 0.75s ease 0s 1 normal none;
+}
+@keyframes Ease_in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.message_footer_wrapper {
+  display: flex;
+  justify-content: space-around;
+  height: 10%;
+  align-items: center;
+}
+
+.footer_input {
+  padding: 10px;
+  border: none;
+  height: 60%;
+  width: 80%;
+}
+.start_recording {
+  padding: 15px;
+  transition: all 0.5s ease;
+}
+.start_recording:hover {
+  scale: 1.3;
+  cursor: pointer;
+}
+.stop_recording {
+  padding: 15px;
+  filter: invert(33%) sepia(56%) saturate(3447%) hue-rotate(326deg)
+    brightness(103%) contrast(105%);
+  transition: all 0.5s ease;
+}
+.stop_recording:hover {
+  scale: 1.3;
+  cursor: pointer;
+}
+.send {
+  padding: 15px;
+  transition: all 0.5s ease;
+}
+.send:hover {
+  cursor: pointer;
+  scale: 1.3;
+}
+.AI_image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.AI_name {
+  padding-left: 10px;
+  padding-top: 5px;
+}
+.chatroom_user_image {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+.user_image {
+  width: 40px;
+  height: 50px;
+  border-radius: 50%;
+}
+.right_message_audio {
+  padding: 15px 10px 0px 0px;
+}
+.message_audio {
+  width: 190px;
+  height: 40px;
+}
+.left_message_audio {
+  width: 190px;
+  height: 35px;
+  padding: 10px 0px 0px 10px;
+}
+.typing {
+  width: 6em;
+  height: 1em;
+  position: relative;
+  padding: 1px;
+}
+
+.typing__dot {
+  float: left;
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+  opacity: 0;
+  animation: loadingFade 1s infinite;
+}
+
+.typing__dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing__dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing__dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.typing_wrapper {
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+}
+.typing_wrapper > div {
+  font-size: x-small;
+  padding-top: 5px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.text-translation-display {
+  flex-direction: column;
+}
+
+.text-translation-form {
+  flex-direction: row;
+
+  align-items: flex-start;
+  margin: 1rem;
+}
+
+.text-translation-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.text-input {
+  width: 50vh;
+  height: 50vh;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.2rem;
+  resize: none;
+  text-align: left;
+  vertical-align: top;
+}
+
+.text-output {
+  width: 50vh;
+  height: 50vh;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  resize: none;
+  background-color: #ffffff;
+}
+
+.language-box {
+  margin: 1rem;
+  width: 50vh;
+  height: 5vh;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.language-select {
+  width: 50vh;
+  height: 5vh;
+  text-align: center;
+}
+
+.settings {
+  flex-direction: column;
+  width: 30vw;
+  height: 30vh;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+}
+
+.settings > div {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}

@@ -17,16 +17,15 @@ SpeechGuru utilizes a tech stack comprising of React, TypeScript, OpenAI Whisper
 
 ## Table of Contents
 
-- [SpeechGuru](#speechguru)
-  - [Features](#features)
-  - [Tech Stack](#tech-stack)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-      - [Python server setup](#python-server-setup)
-      - [Express server setup](#express-server-setup)
-      - [React frontend setup](#react-frontend-setup)
-  - [Authors](#authors)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+    - [Python server setup](#python-server-setup)
+    - [Express server setup](#express-server-setup)
+    - [React frontend setup](#react-frontend-setup)
+- [Authors](#authors)
 
 ## Tech Stack
 
@@ -121,7 +120,7 @@ python Whisper.py
 Inside the exp folder install dependencies and start the express server:
 ```bash
 npm i
-nodemon index.js
+nodemon index.ts
 ```
 
 ### React front end setup

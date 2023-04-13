@@ -3,14 +3,14 @@ FROM node:18-alpine
 
 
 # Setting up the work directory
-WORKDIR /my-app
+WORKDIR /client
 
 # Installing dependencies
-COPY ./package.json /my-app
+COPY ./package.json /client
 RUN npm install
 
 # Copying all the files in our project
-COPY ./my-app .
+COPY ./client .
 
 # Starting our application
 CMD npm RUN
